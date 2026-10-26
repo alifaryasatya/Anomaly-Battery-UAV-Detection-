@@ -22,6 +22,37 @@ Dataset baterai ada di `data/raw/dataset_baterai.csv`. Untuk menjalankan pipelin
 
 Keluaran eksperimen baru dibuat di `artifacts/`. Hasil historis yang dipaketkan di bawah adalah snapshot analisis terverifikasi; perintah pipeline tidak menimpa hasil dengan identitas berbeda.
 
+## Demo mandiri untuk dosen
+
+Demo ini berjalan offline dari CSV yang disertakan. Jalankan perintah dari folder root repository. Untuk menyiapkan salinan baru:
+
+```powershell
+git clone https://github.com/alifaryasatya/Anomaly-Battery-UAV-Detection-.git
+cd Anomaly-Battery-UAV-Detection-
+py -3.13 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.lock.txt
+```
+
+Lihat command yang tersedia, periksa dataset, lalu jalankan evaluasi LOAFO:
+
+```powershell
+.\.venv\Scripts\python.exe main.py --help
+.\.venv\Scripts\python.exe main.py inspect
+.\.venv\Scripts\python.exe main.py cross-validate
+```
+
+`inspect` menunjukkan schema dan cakupan dataset. `cross-validate` memakai pemisahan seluruh flight; bila identitas run cocok, CLI memeriksa lalu memakai ulang artefak baseline yang sudah disertakan. Setelah itu buka laporan lokal:
+
+```powershell
+Start-Process .\artifacts\reports\research_v2_20261026\research_report.html
+```
+
+Untuk demonstrasi singkat, tunjukkan grafik tegangan sag aktual dan prediksi, residual terhadap threshold P99, serta hasil alarm. Buka indeks skenario di browser dari `artifacts/reports/research_v2_20261026/scenario_index.html`, lalu cari `00000074 progressive mild` untuk melihat contoh gangguan progressive yang tidak terdeteksi beserta skor per sampelnya.
+
+Model HGB Battery-D memperkirakan voltage sag berdasarkan fitur arus. Skor alarm adalah residual positif `max(0, sag aktual − sag prediksi)`; alarm dikonfirmasi setelah skor melewati P99 validation secara kontinu selama 0,5 detik. Fault sintetis diterapkan ke salinan telemetry untuk menguji respons perangkat lunak, bukan untuk menyatakan baterai mengalami kerusakan nyata.
+
+Hasil baseline yang perlu dijelaskan: 156/162 event sintetis terdeteksi, healthy-assumed confirmed FPR 11,83%, dan target progressive dalam ≤5 detik tercapai 12/51. Hasil ini adalah evaluasi historis pada enam flight, bukan validasi keselamatan atau demonstrasi switching fisik. Siapkan environment dan jalankan perintah sebelum presentasi agar waktu demo dapat dipakai untuk membahas hasil.
+
 ## Laporan dan hasil yang disertakan
 
 - [Laporan penelitian mendalam (HTML)](artifacts/reports/research_v2_20261026/research_report.html) dan [Markdown](artifacts/reports/research_v2_20261026/research_report.md).
