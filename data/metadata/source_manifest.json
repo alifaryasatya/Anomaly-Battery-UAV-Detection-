@@ -1,0 +1,62 @@
+{
+  "source_dataset": "dataset_baterai_throttle.csv",
+  "source_sha256_before": "437a0fb690df5d6d2d34d03d9f70db3119d810cac489f738213d131be439ab04",
+  "source_sha256_after": "437a0fb690df5d6d2d34d03d9f70db3119d810cac489f738213d131be439ab04",
+  "historical_summary_sha256": "bb8a12d39a832b3193cab6a8a22cefeae68a2405500ed6ef88ec14a79b6ed5a1",
+  "source_unchanged": true,
+  "rows": 32338,
+  "flights": 17,
+  "columns": [
+    "NamaFile",
+    "TimeUS",
+    "Inst",
+    "Volt",
+    "Curr",
+    "CurrTot"
+  ],
+  "removed_column": "ThO",
+  "field_strings_and_row_order_preserved": true,
+  "historical_active_flights": [
+    "00000066.BIN",
+    "00000069.BIN",
+    "00000070.BIN",
+    "00000071.BIN",
+    "00000073.BIN",
+    "00000074.BIN"
+  ],
+  "note": "V1 activity labels are provenance only. Recompute V2 load labels from current.",
+  "outputs": [
+    {
+      "path": "data/raw/dataset_baterai.csv",
+      "sha256": "bc83a9a1bde9dc2412c1ce80429a336bead23df4daf97c12f3cb8ed554019368"
+    },
+    {
+      "path": "data/active_healthy_flights/00000066.csv",
+      "sha256": "9354580c7e1079d09d08a36364510a9af01f42d9d6743d863db6380a34d5256f"
+    },
+    {
+      "path": "data/active_healthy_flights/00000069.csv",
+      "sha256": "87c29ddd62ef101ffe53988ef07a6187a40060888060c34456783f5d1dfc717a"
+    },
+    {
+      "path": "data/active_healthy_flights/00000070.csv",
+      "sha256": "9459ea099df187c4bc4e9f50da873e653f08e473dcf78acdb04b4fb55fe90103"
+    },
+    {
+      "path": "data/active_healthy_flights/00000071.csv",
+      "sha256": "f82e3a6b9eedda1515a1df718dc666a8b097f7f26e51d519b2fe7ae6b01434cd"
+    },
+    {
+      "path": "data/active_healthy_flights/00000073.csv",
+      "sha256": "d36bdbf2b22f109b3d1e06ad1a0fa0a3102d616d938967191bd4be9a05d8f618"
+    },
+    {
+      "path": "data/active_healthy_flights/00000074.csv",
+      "sha256": "7edf7c60b00a528dee1d74e309db1b67ff5afc968489eabcb03c2a02433ea22b"
+    },
+    {
+      "path": "data/metadata/flight_inventory.csv",
+      "sha256": "2252c288def6669a8abaf8c1bf71c611e3a99dc8aeb94278003b30b70cc80ce3"
+    }
+  ]
+}

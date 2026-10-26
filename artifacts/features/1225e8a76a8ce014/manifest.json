@@ -1,0 +1,35 @@
+{
+  "run_id": "1225e8a76a8ce014",
+  "preprocessing_manifest_sha256": "3e929e255ed5223946262bb2f82439fe7378c685167afbc9f6772e0bbc34706b",
+  "code_sha256": {
+    "src/features.py": "a6ce9658957c62d206b0a6de69f6d551e5a50c1829425795a22cdbacea012fd0",
+    "src/feature_sets.py": "ad9743a72accc1a4d94de79bbff0298aac143359ba52d9fc3459e03178c4b533",
+    "src/config.py": "47fdc22a2335d680be5ddf1875fa2d175225bff4e32d167b2df8f981580684b5",
+    "src/preprocessing.py": "f29b8be8a145495832fd96949db712e00e995c297ebc59809c1109e904b200cf",
+    "src/activity.py": "e3204498f192d3a14ca912d6ed528b4b6dd7ef3a15a9a65cd5ef79a7eaad8dc1",
+    "src/data_loader.py": "c574ca8b326c7f0db957852c1b4fae1c4afebde313184384c20c780887e9c0c9",
+    "src/reporting.py": "8764edd2fd6721534d163478f739a13bec8a177eb87d0bd87e129143d45a2027"
+  },
+  "config_sha256": "6ba44bcae775eacad4beeae687cfa5a4f47cb0d9f63cdcecab6285438a435074",
+  "dependency_versions": {
+    "python": "3.13.3",
+    "packages": {
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scikit-learn": "1.9.1",
+      "PyYAML": "6.0.3",
+      "pytest": "9.1.1",
+      "matplotlib": "3.11.2",
+      "joblib": "1.6.0"
+    }
+  },
+  "outputs": {
+    "battery_features.csv": "7eae131266b6334263c4907d6f6d86bbd1c6f2dfb4623035372715b508c4ee40",
+    "config_used.yaml": "6ba44bcae775eacad4beeae687cfa5a4f47cb0d9f63cdcecab6285438a435074",
+    "dependency_versions.json": "79bf439e7fef5770c9cdd56a1e269ac0e13d97b5aa73c30f65f1f1ff681a9cd4",
+    "feature_audit.md": "76ab118bb7bb6aab57326f3578c729fa3a88b1026a74dabee11878493e755fb9",
+    "feature_registry.json": "e0748d7494da15744e634b94bab1a1df1c149ecb34fb0c92a34cf9827b23c34e",
+    "reference_coverage.csv": "b47779089ec9fbe4135bfbe0a82ef3d5e73f8a8b0305cc62d8549f236c716190",
+    "summary.json": "6a5c1c6763e1e03711126278f97cdb709a5de1520cc5d7cf72b4838580a7d3a1"
+  }
+}

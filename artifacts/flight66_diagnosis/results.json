@@ -1,0 +1,566 @@
+{
+  "scope": "post_hoc_diagnosis_historical_healthy_assumed",
+  "flights": [
+    {
+      "samples": 9506,
+      "confirmed_samples": 3168,
+      "raw_samples": 3447,
+      "confirmed_fpr": 0.33326320218809175,
+      "episodes": 26,
+      "ready_seconds": 949.099397,
+      "residual_mean_v": 0.065354693695759,
+      "residual_median_v": 0.028589079633279016,
+      "residual_q95_v": 0.29463993703903224,
+      "residual_max_v": 0.44570517038215884,
+      "mae_v": 0.1094958517090959,
+      "rmse_v": 0.14440260180826475,
+      "actual_sag_mean_v": 1.317549399819947,
+      "predicted_sag_mean_v": 1.2521947061241878,
+      "Curr_mean": 5.939626193302517,
+      "CurrTot_min": 0.017648277804255486,
+      "CurrTot_max": 1568.51513671875,
+      "Volt_mean": 15.099481888327025,
+      "abs_dI_dt_mean": 3.7875110739383286,
+      "outside_any_predictor_samples": 5198,
+      "NamaFile": "00000066.BIN",
+      "fold_id": "fold_00",
+      "evaluated_role": "test",
+      "threshold_v": 0.11181085884265932,
+      "reference_v": 16.417031288146973,
+      "training_flights": [
+        "00000070.BIN",
+        "00000071.BIN",
+        "00000073.BIN",
+        "00000074.BIN"
+      ],
+      "validation_flights": [
+        "00000069.BIN"
+      ],
+      "segments": 15,
+      "gaps": 14
+    },
+    {
+      "samples": 1643,
+      "confirmed_samples": 0,
+      "raw_samples": 0,
+      "confirmed_fpr": 0.0,
+      "episodes": 0,
+      "ready_seconds": 164.100118,
+      "residual_mean_v": -0.07921200782565167,
+      "residual_median_v": -0.07406880049574449,
+      "residual_q95_v": 0.0006504285140168267,
+      "residual_max_v": 0.044925528440526774,
+      "mae_v": 0.08043303521985799,
+      "rmse_v": 0.09899118189725589,
+      "actual_sag_mean_v": 0.2644389251783282,
+      "predicted_sag_mean_v": 0.3436509330039798,
+      "Curr_mean": 4.906922241110264,
+      "CurrTot_min": 0.0013188172597438097,
+      "CurrTot_max": 223.96743774414062,
+      "Volt_mean": 15.728702249138077,
+      "abs_dI_dt_mean": 4.006629465941126,
+      "outside_any_predictor_samples": 57,
+      "NamaFile": "00000070.BIN",
+      "fold_id": "fold_02",
+      "evaluated_role": "test",
+      "threshold_v": 0.0768544956526167,
+      "reference_v": 15.993141174316406,
+      "training_flights": [
+        "00000066.BIN",
+        "00000069.BIN",
+        "00000073.BIN",
+        "00000074.BIN"
+      ],
+      "validation_flights": [
+        "00000071.BIN"
+      ],
+      "segments": 2,
+      "gaps": 1
+    },
+    {
+      "samples": 1622,
+      "confirmed_samples": 3,
+      "raw_samples": 17,
+      "confirmed_fpr": 0.0018495684340320592,
+      "episodes": 2,
+      "ready_seconds": 161.99991900000003,
+      "residual_mean_v": -0.06141457929339691,
+      "residual_median_v": -0.05427205385080716,
+      "residual_q95_v": 0.04709623084247705,
+      "residual_max_v": 0.24588499870370317,
+      "mae_v": 0.0772916647393202,
+      "rmse_v": 0.09938268708734302,
+      "actual_sag_mean_v": 0.5376412842041467,
+      "predicted_sag_mean_v": 0.5990558634975436,
+      "Curr_mean": 8.94629343390287,
+      "CurrTot_min": 0.0015141369076445699,
+      "CurrTot_max": 403.11676025390625,
+      "Volt_mean": 15.969562771581986,
+      "abs_dI_dt_mean": 5.32284316222444,
+      "outside_any_predictor_samples": 48,
+      "NamaFile": "00000069.BIN",
+      "fold_id": "fold_00",
+      "evaluated_role": "validation",
+      "threshold_v": 0.11181085884265932,
+      "reference_v": 16.507204055786133,
+      "training_flights": [
+        "00000070.BIN",
+        "00000071.BIN",
+        "00000073.BIN",
+        "00000074.BIN"
+      ],
+      "validation_flights": [
+        "00000069.BIN"
+      ],
+      "segments": 2,
+      "gaps": 1
+    }
+  ],
+  "domain": [
+    {
+      "diagnostic_distance": "Euclidean in 7 original predictors, training median/IQR (std fallback), nearest actual training row; no operational scaling or OOD decision threshold",
+      "center": {
+        "Curr": 5.673609972000122,
+        "CurrTot": 249.6008071899414,
+        "dI_dt": 0.0,
+        "Curr_roll_mean_0p5s": 6.214105888207754,
+        "Curr_roll_std_0p5s": 0.22583101228309851,
+        "Curr_roll_mean_1p0s": 6.365089079466733,
+        "Curr_roll_std_1p0s": 0.36977580450933467
+      },
+      "scale": {
+        "Curr": 8.772705600480549,
+        "CurrTot": 483.8008556365967,
+        "dI_dt": 0.760757803125814,
+        "Curr_roll_mean_0p5s": 8.800718695926479,
+        "Curr_roll_std_0p5s": 0.6650562009651516,
+        "Curr_roll_mean_1p0s": 8.788139035755277,
+        "Curr_roll_std_1p0s": 0.7752895829360176
+      },
+      "CurrTot_last_bin_edge": 1016.5822143554688,
+      "CurrTot_training_max": 1016.5833740234375,
+      "CurrTot_model_bins": 255,
+      "test_rows_outside_training_range": 5198,
+      "test_rows_above_training_max": 5198,
+      "test_rows_below_training_min": 0,
+      "unique_bins_above_training_max": [
+        254.0
+      ],
+      "NamaFile": "00000066.BIN",
+      "fold_id": "fold_00",
+      "evaluated_role": "test"
+    },
+    {
+      "diagnostic_distance": "Euclidean in 7 original predictors, training median/IQR (std fallback), nearest actual training row; no operational scaling or OOD decision threshold",
+      "center": {
+        "Curr": 6.152855396270752,
+        "CurrTot": 443.5491027832031,
+        "dI_dt": 0.0,
+        "Curr_roll_mean_0p5s": 6.507800976435344,
+        "Curr_roll_std_0p5s": 0.2201682186212795,
+        "Curr_roll_mean_1p0s": 6.615689971230247,
+        "Curr_roll_std_1p0s": 0.36396740137026623
+      },
+      "scale": {
+        "Curr": 10.045855854346883,
+        "CurrTot": 723.9157562255859,
+        "dI_dt": 0.8023974297300953,
+        "Curr_roll_mean_0p5s": 9.792678014666308,
+        "Curr_roll_std_0p5s": 0.6595232548909454,
+        "Curr_roll_mean_1p0s": 9.703579981027657,
+        "Curr_roll_std_1p0s": 0.7789904950347035
+      },
+      "CurrTot_last_bin_edge": 1568.5150146484375,
+      "CurrTot_training_max": 1568.51513671875,
+      "CurrTot_model_bins": 228,
+      "test_rows_outside_training_range": 56,
+      "test_rows_above_training_max": 0,
+      "test_rows_below_training_min": 56,
+      "unique_bins_above_training_max": [],
+      "NamaFile": "00000070.BIN",
+      "fold_id": "fold_02",
+      "evaluated_role": "test"
+    },
+    {
+      "diagnostic_distance": "Euclidean in 7 original predictors, training median/IQR (std fallback), nearest actual training row; no operational scaling or OOD decision threshold",
+      "center": {
+        "Curr": 5.673609972000122,
+        "CurrTot": 249.6008071899414,
+        "dI_dt": 0.0,
+        "Curr_roll_mean_0p5s": 6.214105888207754,
+        "Curr_roll_std_0p5s": 0.22583101228309851,
+        "Curr_roll_mean_1p0s": 6.365089079466733,
+        "Curr_roll_std_1p0s": 0.36977580450933467
+      },
+      "scale": {
+        "Curr": 8.772705600480549,
+        "CurrTot": 483.8008556365967,
+        "dI_dt": 0.760757803125814,
+        "Curr_roll_mean_0p5s": 8.800718695926479,
+        "Curr_roll_std_0p5s": 0.6650562009651516,
+        "Curr_roll_mean_1p0s": 8.788139035755277,
+        "Curr_roll_std_1p0s": 0.7752895829360176
+      },
+      "CurrTot_last_bin_edge": 1016.5822143554688,
+      "CurrTot_training_max": 1016.5833740234375,
+      "CurrTot_model_bins": 255,
+      "test_rows_outside_training_range": 0,
+      "test_rows_above_training_max": 0,
+      "test_rows_below_training_min": 0,
+      "unique_bins_above_training_max": [],
+      "NamaFile": "00000069.BIN",
+      "fold_id": "fold_00",
+      "evaluated_role": "validation"
+    }
+  ],
+  "diagnostic_definitions": [
+    {
+      "abs_dI_dt_training_p95": 18.283740609758382,
+      "current_std_1s_training_p95": 1.5571632769220345,
+      "transient_context_definition": "abs(dI_dt)>training P95 OR current rolling std(1s)>training P95; diagnostic context only; not detector/tuning",
+      "quartile_edges": {
+        "CurrTot": [
+          0.017648277804255486,
+          401.16178131103516,
+          1186.0919799804688,
+          1408.2601318359375,
+          1568.51513671875
+        ],
+        "Volt": [
+          14.175437927246094,
+          14.694603443145752,
+          14.885251522064209,
+          15.470139503479004,
+          16.436853408813477
+        ],
+        "Curr": [
+          0.0,
+          0.00020079666865058243,
+          0.0008031866746023297,
+          12.810413599014282,
+          26.56981658935547
+        ],
+        "abs_dI_dt": [
+          0.0,
+          0.0020088706783110643,
+          0.008037171133452224,
+          5.5407739712920705,
+          191.39610426694253
+        ],
+        "elapsed_time": [
+          2.000194,
+          414.603467,
+          748.928412,
+          1558.1533935,
+          1824.678372
+        ]
+      },
+      "window_definition": "Fixed 10s blocks per segment; report duration and continuous bias; not a replacement alarm"
+    },
+    {
+      "abs_dI_dt_training_p95": 17.88790721101273,
+      "current_std_1s_training_p95": 1.6814500062717976,
+      "transient_context_definition": "abs(dI_dt)>training P95 OR current rolling std(1s)>training P95; diagnostic context only; not detector/tuning",
+      "quartile_edges": {
+        "CurrTot": [
+          0.0013188172597438097,
+          2.0346799492836,
+          82.10545349121094,
+          129.5593032836914,
+          223.96743774414062
+        ],
+        "Volt": [
+          15.317131996154785,
+          15.567434787750244,
+          15.768349647521973,
+          15.883378505706787,
+          16.006637573242188
+        ],
+        "Curr": [
+          0.0,
+          0.00020079666865058243,
+          12.51826524734497,
+          25.219860076904297
+        ],
+        "abs_dI_dt": [
+          0.0,
+          0.0022307394205293243,
+          5.00284807596563,
+          154.58374293514916
+        ],
+        "elapsed_time": [
+          2.099964,
+          43.1500365,
+          185.53144,
+          226.5816385,
+          267.631529
+        ]
+      },
+      "window_definition": "Fixed 10s blocks per segment; report duration and continuous bias; not a replacement alarm"
+    },
+    {
+      "abs_dI_dt_training_p95": 18.283740609758382,
+      "current_std_1s_training_p95": 1.5571632769220345,
+      "transient_context_definition": "abs(dI_dt)>training P95 OR current rolling std(1s)>training P95; diagnostic context only; not detector/tuning",
+      "quartile_edges": {
+        "CurrTot": [
+          0.0015141369076445699,
+          117.30236053466797,
+          167.87114715576172,
+          313.7055206298828,
+          403.11676025390625
+        ],
+        "Volt": [
+          15.298246383666992,
+          15.775809049606323,
+          15.945110321044922,
+          16.161508560180664,
+          16.509967803955078
+        ],
+        "Curr": [
+          0.0,
+          0.0010039833141490817,
+          11.48476505279541,
+          13.370797872543335,
+          39.959136962890625
+        ],
+        "abs_dI_dt": [
+          0.0,
+          0.009652993080604994,
+          2.0583295486350224,
+          5.930821667238427,
+          130.10024643020614
+        ],
+        "elapsed_time": [
+          2.000067,
+          42.52506975,
+          95.1500255,
+          135.675271,
+          176.199986
+        ]
+      },
+      "window_definition": "Fixed 10s blocks per segment; report duration and continuous bias; not a replacement alarm"
+    }
+  ],
+  "calibration_context": {
+    "flight": "00000069.BIN",
+    "role": "Flight66 fold00 calibration diagnostic, not independent test",
+    "ready_samples": 1622,
+    "confirmed_samples": 3,
+    "raw_samples": 17,
+    "residual_mean_v": -0.06141457929339691,
+    "residual_q99_v": 0.11181085884265932
+  },
+  "all_historical_active_metrics": [
+    {
+      "fold_id": "fold_00",
+      "test_flight": "00000066.BIN",
+      "unseen_by_model": true,
+      "used_for_threshold": false,
+      "ready_samples": 9506,
+      "raw_alarm_samples": 3447,
+      "confirmed_alarm_samples": 3168,
+      "raw_fpr": 0.3626130864717021,
+      "confirmed_fpr": 0.33326320218809175,
+      "confirmed_episodes": 26,
+      "observed_ready_seconds": 949.099397,
+      "confirmed_episodes_per_minute": 1.6436634613097327
+    },
+    {
+      "fold_id": "fold_01",
+      "test_flight": "00000069.BIN",
+      "unseen_by_model": true,
+      "used_for_threshold": false,
+      "ready_samples": 1622,
+      "raw_alarm_samples": 67,
+      "confirmed_alarm_samples": 8,
+      "raw_fpr": 0.04130702836004932,
+      "confirmed_fpr": 0.004932182490752158,
+      "confirmed_episodes": 2,
+      "observed_ready_seconds": 161.999919,
+      "confirmed_episodes_per_minute": 0.7407411111112963
+    },
+    {
+      "fold_id": "fold_02",
+      "test_flight": "00000070.BIN",
+      "unseen_by_model": true,
+      "used_for_threshold": false,
+      "ready_samples": 1643,
+      "raw_alarm_samples": 0,
+      "confirmed_alarm_samples": 0,
+      "raw_fpr": 0.0,
+      "confirmed_fpr": 0.0,
+      "confirmed_episodes": 0,
+      "observed_ready_seconds": 164.100118,
+      "confirmed_episodes_per_minute": 0.0
+    },
+    {
+      "fold_id": "fold_03",
+      "test_flight": "00000071.BIN",
+      "unseen_by_model": true,
+      "used_for_threshold": false,
+      "ready_samples": 986,
+      "raw_alarm_samples": 2,
+      "confirmed_alarm_samples": 0,
+      "raw_fpr": 0.002028397565922921,
+      "confirmed_fpr": 0.0,
+      "confirmed_episodes": 0,
+      "observed_ready_seconds": 98.299889,
+      "confirmed_episodes_per_minute": 0.0
+    },
+    {
+      "fold_id": "fold_04",
+      "test_flight": "00000073.BIN",
+      "unseen_by_model": true,
+      "used_for_threshold": false,
+      "ready_samples": 8718,
+      "raw_alarm_samples": 91,
+      "confirmed_alarm_samples": 2,
+      "raw_fpr": 0.010438173893094746,
+      "confirmed_fpr": 0.00022941041523285156,
+      "confirmed_episodes": 1,
+      "observed_ready_seconds": 870.80123,
+      "confirmed_episodes_per_minute": 0.06890206161054688
+    },
+    {
+      "fold_id": "fold_05",
+      "test_flight": "00000074.BIN",
+      "unseen_by_model": true,
+      "used_for_threshold": false,
+      "ready_samples": 4395,
+      "raw_alarm_samples": 0,
+      "confirmed_alarm_samples": 0,
+      "raw_fpr": 0.0,
+      "confirmed_fpr": 0.0,
+      "confirmed_episodes": 0,
+      "observed_ready_seconds": 439.09999,
+      "confirmed_episodes_per_minute": 0.0
+    }
+  ],
+  "training_domain": [
+    {
+      "NamaFile": "00000070.BIN",
+      "role": "fold00_train_in_sample_not_unseen_FPR",
+      "low_current_le_1A": false,
+      "samples": 630,
+      "CurrTot_min": 0.040522828698158264,
+      "CurrTot_max": 223.95008850097656,
+      "Volt_min": 15.317131996154785,
+      "Volt_max": 15.910462379455566,
+      "V_ref": 15.993141174316406,
+      "actual_sag_min": 0.08267879486083984,
+      "actual_sag_max": 0.6760091781616211,
+      "residual_mean_v": -0.007180461492224533,
+      "residual_q95_v": 0.017414385592906315
+    },
+    {
+      "NamaFile": "00000070.BIN",
+      "role": "fold00_train_in_sample_not_unseen_FPR",
+      "low_current_le_1A": true,
+      "samples": 1013,
+      "CurrTot_min": 0.0013188172597438097,
+      "CurrTot_max": 223.96743774414062,
+      "Volt_min": 15.504517555236816,
+      "Volt_max": 16.006637573242188,
+      "V_ref": 15.993141174316406,
+      "actual_sag_min": -0.01349639892578125,
+      "actual_sag_max": 0.48862361907958984,
+      "residual_mean_v": -0.00044688851646250015,
+      "residual_q95_v": 0.023185616334070572
+    },
+    {
+      "NamaFile": "00000071.BIN",
+      "role": "fold00_train_in_sample_not_unseen_FPR",
+      "low_current_le_1A": false,
+      "samples": 455,
+      "CurrTot_min": 0.2587023377418518,
+      "CurrTot_max": 166.2309112548828,
+      "Volt_min": 15.08268928527832,
+      "Volt_max": 15.553119659423828,
+      "V_ref": 15.709305763244629,
+      "actual_sag_min": 0.15618610382080078,
+      "actual_sag_max": 0.6266164779663086,
+      "residual_mean_v": 0.00466278795420397,
+      "residual_q95_v": 0.03011773197393509
+    },
+    {
+      "NamaFile": "00000071.BIN",
+      "role": "fold00_train_in_sample_not_unseen_FPR",
+      "low_current_le_1A": true,
+      "samples": 531,
+      "CurrTot_min": 0.013363011181354523,
+      "CurrTot_max": 166.23989868164062,
+      "Volt_min": 15.259268760681152,
+      "Volt_max": 15.721744537353516,
+      "V_ref": 15.709305763244629,
+      "actual_sag_min": -0.012438774108886719,
+      "actual_sag_max": 0.45003700256347656,
+      "residual_mean_v": -0.0018853177011989132,
+      "residual_q95_v": 0.02136152260870136
+    },
+    {
+      "NamaFile": "00000073.BIN",
+      "role": "fold00_train_in_sample_not_unseen_FPR",
+      "low_current_le_1A": false,
+      "samples": 4340,
+      "CurrTot_min": 0.102155402302742,
+      "CurrTot_max": 1016.580322265625,
+      "Volt_min": 14.61146354675293,
+      "Volt_max": 16.392486572265625,
+      "V_ref": 16.5620059967041,
+      "actual_sag_min": 0.16951942443847656,
+      "actual_sag_max": 1.9505424499511719,
+      "residual_mean_v": -0.0005950731205969107,
+      "residual_q95_v": 0.029989093019852333
+    },
+    {
+      "NamaFile": "00000073.BIN",
+      "role": "fold00_train_in_sample_not_unseen_FPR",
+      "low_current_le_1A": true,
+      "samples": 4378,
+      "CurrTot_min": 0.005508252885192633,
+      "CurrTot_max": 1016.5833740234375,
+      "Volt_min": 14.921489715576172,
+      "Volt_max": 16.582719802856445,
+      "V_ref": 16.5620059967041,
+      "actual_sag_min": -0.02071380615234375,
+      "actual_sag_max": 1.6405162811279297,
+      "residual_mean_v": 0.00025527524707539797,
+      "residual_q95_v": 0.026831273768971684
+    },
+    {
+      "NamaFile": "00000074.BIN",
+      "role": "fold00_train_in_sample_not_unseen_FPR",
+      "low_current_le_1A": false,
+      "samples": 2658,
+      "CurrTot_min": 0.23018775880336761,
+      "CurrTot_max": 632.336669921875,
+      "Volt_min": 15.25236988067627,
+      "Volt_max": 16.467378616333008,
+      "V_ref": 16.64838981628418,
+      "actual_sag_min": 0.18101119995117188,
+      "actual_sag_max": 1.3960199356079102,
+      "residual_mean_v": 0.0024245591837038544,
+      "residual_q95_v": 0.0290276301404485
+    },
+    {
+      "NamaFile": "00000074.BIN",
+      "role": "fold00_train_in_sample_not_unseen_FPR",
+      "low_current_le_1A": true,
+      "samples": 1737,
+      "CurrTot_min": 0.08394001424312592,
+      "CurrTot_max": 632.3845825195312,
+      "Volt_min": 15.481276512145996,
+      "Volt_max": 16.665943145751953,
+      "V_ref": 16.64838981628418,
+      "actual_sag_min": -0.017553329467773438,
+      "actual_sag_max": 1.1671133041381836,
+      "residual_mean_v": -0.0006470204488350633,
+      "residual_q95_v": 0.020917194960389397
+    }
+  ],
+  "source_cv_run": "4bc978e2773687d3",
+  "source_feature_run": "1225e8a76a8ce014",
+  "physical_fault_causal_attribution_established": false,
+  "software_false_alarm_mechanism_reproduced": true
+}

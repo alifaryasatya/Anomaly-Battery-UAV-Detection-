@@ -1,0 +1,20 @@
+{
+  "run_id": "e22890aeb6ffddf6",
+  "provenance_sha256": "2252c288def6669a8abaf8c1bf71c611e3a99dc8aeb94278003b30b70cc80ce3",
+  "outputs": {
+    "active_segments.csv": "76a3e99e87832879cb69975404c3ed48783d22d956fd572290bc97f08b4263d0",
+    "activity_sensitivity_per_flight.csv": "a4ee298ed6b319c3bf021caf67f506f779c7a727c103ccbe3e5d114e854bee90",
+    "activity_sensitivity_summary.csv": "45d47762e172185e6b3432574cd1150f270d41102e7045901cf4f73e0d29e9ab",
+    "battery_activity.csv": "09e0a62d5427ef5f32e90e04a35da48cbf328970f735f10e754857c5259ffc8b",
+    "battery_segmented.csv": "0917bfcad9441f364fa6989fff03441dd14b3d2dfce52bd2f021dc9a2d2c79f8",
+    "config_used.yaml": "6ba44bcae775eacad4beeae687cfa5a4f47cb0d9f63cdcecab6285438a435074",
+    "data_audit.md": "25c10feaad9417a754bf5690e2d8ac45e9db3952a1c31211481aa9790644a9dc",
+    "data_quality_events.csv": "480fee697e3c53f0f811a32d0310a7348b3df274f21a980c0e3d0ae61ecd7ee2",
+    "dropped_rows.csv": "b3140eb220c7052c45452eafd80cd12553a7119ad9290358812ab1eac7894048",
+    "flight_inventory.csv": "d00e27064724a1383759212c395c0595b46c6bb730bef6a961b59a3cbc2ed897",
+    "segments.csv": "1b46fe839e767476a8b4ed7c99be0ff35e5ab07b3339c67b29b08610df5cb5b1",
+    "summary.json": "b1b3bf07b7bd74a9b6702cdd7c64dcf7aa1eea3f41bb27fee1dcf11a0af87617",
+    "time_gap_summary.csv": "9c843cfe93786f6e7789d4c7e6290bf5cdad1bedcb9d32c00f620605f31caf06",
+    "unit_instance_diagnostics.json": "8d40da4281ea3086bb853e0bb392710310420745bcca8b3b405114195c297899"
+  }
+}

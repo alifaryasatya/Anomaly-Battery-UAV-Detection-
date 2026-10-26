@@ -1,0 +1,102 @@
+[
+  {
+    "command": "preprocess",
+    "run_id": "e22890aeb6ffddf6",
+    "output_directory": "C:\\Skripsi2\\HGB V2\\artifacts\\preprocessing\\e22890aeb6ffddf6",
+    "manifest_sha256": "3e929e255ed5223946262bb2f82439fe7378c685167afbc9f6772e0bbc34706b",
+    "summary_sha256": "b1b3bf07b7bd74a9b6702cdd7c64dcf7aa1eea3f41bb27fee1dcf11a0af87617",
+    "verified_files": 14,
+    "pre_outer_frozen_files": 0,
+    "model_bundles": 0
+  },
+  {
+    "command": "features",
+    "run_id": "1225e8a76a8ce014",
+    "output_directory": "C:\\Skripsi2\\HGB V2\\artifacts\\features\\1225e8a76a8ce014",
+    "manifest_sha256": "c102814929b097f9fa3e2f993bedf2348471fcd625d524a8aee2fd7c6ca02f85",
+    "summary_sha256": "6a5c1c6763e1e03711126278f97cdb709a5de1520cc5d7cf72b4838580a7d3a1",
+    "verified_files": 7,
+    "pre_outer_frozen_files": 0,
+    "model_bundles": 0
+  },
+  {
+    "command": "baseline",
+    "run_id": "fcb19424861476bd",
+    "output_directory": "C:\\Skripsi2\\HGB V2\\artifacts\\baseline\\fcb19424861476bd",
+    "manifest_sha256": "2df21a0f7e99092f9422a6f8fe616df64fe147c271a196e39af3fa7061cd187a",
+    "summary_sha256": "ba118a13d133d25c01fabebd55016042561112a74c4a5419adc88bbd153b406c",
+    "verified_files": 14,
+    "pre_outer_frozen_files": 0,
+    "model_bundles": 1
+  },
+  {
+    "command": "inject-faults",
+    "run_id": "437104037cb0fea5",
+    "output_directory": "C:\\Skripsi2\\HGB V2\\artifacts\\fault_injection\\437104037cb0fea5",
+    "manifest_sha256": "a480ee9f11a4f58d7f466a085d537070e46245070d26604d31413001abef0422",
+    "summary_sha256": "5685f1340dff484b2c8a34074db31c1aa5ab9c091b407f4f31e5a85f8ec24205",
+    "verified_files": 270,
+    "pre_outer_frozen_files": 0,
+    "model_bundles": 0
+  },
+  {
+    "command": "cross-validate",
+    "run_id": "4bc978e2773687d3",
+    "output_directory": "C:\\Skripsi2\\HGB V2\\artifacts\\cross_validation\\4bc978e2773687d3",
+    "manifest_sha256": "03bcd9e3520d7fcd47930e27c92c253f39c683dfcbf2699447c0b4b79058e213",
+    "summary_sha256": "cb72066cc78b7f8e00ff37d3779ad596fe4a5c05d85fac0a9fa2dfcc76df1edd",
+    "verified_files": 217,
+    "pre_outer_frozen_files": 18,
+    "model_bundles": 6
+  },
+  {
+    "command": "ablation",
+    "run_id": "9ae785a0f10298bc",
+    "output_directory": "C:\\Skripsi2\\HGB V2\\artifacts\\ablation\\9ae785a0f10298bc",
+    "manifest_sha256": "1c0ec20f230a9f05640014d9b3a74511f220ebf22f8dbe16f056671699f3650e",
+    "summary_sha256": "e541e7e7dc78b322195bb90bdd9e93196a220e5353ba0e101d974cf166e46b02",
+    "verified_files": 1997,
+    "pre_outer_frozen_files": 180,
+    "model_bundles": 60
+  },
+  {
+    "command": "compare-models",
+    "run_id": "03ebe58933705e3e",
+    "output_directory": "C:\\Skripsi2\\HGB V2\\artifacts\\model_comparison\\03ebe58933705e3e",
+    "manifest_sha256": "7ba73e95b76ca7c04419e1d68cb13866aa9bce4468aaad644f3fc824d48ffdaf",
+    "summary_sha256": "0826c1c32209b9ee04eaffc5131f3e13d11a3e665c132d951d932f35b942fec7",
+    "verified_files": 809,
+    "pre_outer_frozen_files": 72,
+    "model_bundles": 24
+  },
+  {
+    "command": "tune",
+    "run_id": "d4351f20af42a44c",
+    "output_directory": "C:\\Skripsi2\\HGB V2\\artifacts\\tuning\\d4351f20af42a44c",
+    "manifest_sha256": "ac7fd52433d264aee3357bad58fb8d135015139a0ad19b69a51d5b8bcc5edf0c",
+    "summary_sha256": "533745767f87f0bfcac4eac3a2bad60c8fcdd7835f667d087752fde4d729af0b",
+    "verified_files": 554,
+    "pre_outer_frozen_files": 206,
+    "model_bundles": 6
+  },
+  {
+    "command": "tune-dual-path",
+    "run_id": "ad82c3e229bf6510",
+    "output_directory": "C:\\Skripsi2\\HGB V2\\artifacts\\dual_path\\ad82c3e229bf6510",
+    "manifest_sha256": "3e4dbd385ed538766d39c8f77a64d4c929a8e1c80438bdae8cb14fef36c02a15",
+    "summary_sha256": "e70960f60f953600f65a8e6e52b1a9d2e214714bd842287b46a88113161675b4",
+    "verified_files": 566,
+    "pre_outer_frozen_files": 215,
+    "model_bundles": 6
+  },
+  {
+    "command": "evaluate-low-load",
+    "run_id": "56b20c4b7936b122",
+    "output_directory": "C:\\Skripsi2\\HGB V2\\artifacts\\low_load\\56b20c4b7936b122",
+    "manifest_sha256": "1751a05774c068b4a66f7352c04f201ed536d90c808c2d266fdff32f204803f7",
+    "summary_sha256": "d8fabc06880805ec1276469dee86a09b4099f345af659f3076ff6eb18ed479e2",
+    "verified_files": 84,
+    "pre_outer_frozen_files": 0,
+    "model_bundles": 0
+  }
+]

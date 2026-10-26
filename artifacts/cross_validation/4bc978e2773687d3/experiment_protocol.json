@@ -1,0 +1,200 @@
+{
+  "experiment": "sprint6_single_path_reference_loafo",
+  "evaluation_scope": "historical_development_cross_validation",
+  "eligible_flights": [
+    "00000066.BIN",
+    "00000069.BIN",
+    "00000070.BIN",
+    "00000071.BIN",
+    "00000073.BIN",
+    "00000074.BIN"
+  ],
+  "assignments": [
+    {
+      "fold_id": "fold_00",
+      "train": [
+        "00000070.BIN",
+        "00000071.BIN",
+        "00000073.BIN",
+        "00000074.BIN"
+      ],
+      "validation": [
+        "00000069.BIN"
+      ],
+      "test": [
+        "00000066.BIN"
+      ]
+    },
+    {
+      "fold_id": "fold_01",
+      "train": [
+        "00000066.BIN",
+        "00000071.BIN",
+        "00000073.BIN",
+        "00000074.BIN"
+      ],
+      "validation": [
+        "00000070.BIN"
+      ],
+      "test": [
+        "00000069.BIN"
+      ]
+    },
+    {
+      "fold_id": "fold_02",
+      "train": [
+        "00000066.BIN",
+        "00000069.BIN",
+        "00000073.BIN",
+        "00000074.BIN"
+      ],
+      "validation": [
+        "00000071.BIN"
+      ],
+      "test": [
+        "00000070.BIN"
+      ]
+    },
+    {
+      "fold_id": "fold_03",
+      "train": [
+        "00000066.BIN",
+        "00000069.BIN",
+        "00000070.BIN",
+        "00000074.BIN"
+      ],
+      "validation": [
+        "00000073.BIN"
+      ],
+      "test": [
+        "00000071.BIN"
+      ]
+    },
+    {
+      "fold_id": "fold_04",
+      "train": [
+        "00000066.BIN",
+        "00000069.BIN",
+        "00000070.BIN",
+        "00000071.BIN"
+      ],
+      "validation": [
+        "00000074.BIN"
+      ],
+      "test": [
+        "00000073.BIN"
+      ]
+    },
+    {
+      "fold_id": "fold_05",
+      "train": [
+        "00000069.BIN",
+        "00000070.BIN",
+        "00000071.BIN",
+        "00000073.BIN"
+      ],
+      "validation": [
+        "00000066.BIN"
+      ],
+      "test": [
+        "00000074.BIN"
+      ]
+    }
+  ],
+  "features": [
+    "Curr",
+    "CurrTot",
+    "dI_dt",
+    "Curr_roll_mean_0p5s",
+    "Curr_roll_std_0p5s",
+    "Curr_roll_mean_1p0s",
+    "Curr_roll_std_1p0s"
+  ],
+  "model_parameters": {
+    "categorical_features": "from_dtype",
+    "early_stopping": false,
+    "interaction_cst": null,
+    "l2_regularization": 0.1,
+    "learning_rate": 0.05,
+    "loss": "squared_error",
+    "max_bins": 255,
+    "max_depth": null,
+    "max_features": 1.0,
+    "max_iter": 200,
+    "max_leaf_nodes": 31,
+    "min_samples_leaf": 20,
+    "monotonic_cst": null,
+    "n_iter_no_change": 10,
+    "quantile": null,
+    "random_state": 42,
+    "scoring": "loss",
+    "tol": 1e-07,
+    "validation_fraction": 0.1,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "random_seed": 42,
+  "openmp_threads": 1,
+  "early_stopping": false,
+  "scaler": null,
+  "train_policy": "whole assigned healthy-assumed flights, reference-ready rows only, including low-current periods",
+  "threshold_policy": "P99 linear healthy-validation only",
+  "persistence_seconds": 0.5,
+  "candidate_selection": "none: frozen reference baseline",
+  "phase_order": "fit/calibrate/freeze ALL folds, then outer healthy and synthetic evaluation",
+  "incident_policy": "new confirmed episode within support; carried confirmed alarm at onset contaminates entire scenario",
+  "deadlines_seconds": [
+    1.0,
+    2.0,
+    5.0,
+    10.0,
+    30.0
+  ],
+  "deadline_denominator": "all applicable, including undetected and PREEXISTING_ALARM; NOT_APPLICABLE excluded",
+  "fault_config": {
+    "active_load_only_for_current_dependent_faults": true,
+    "start_positions": [
+      0.4,
+      0.5,
+      0.6
+    ],
+    "resistance_ohm": {
+      "mild": 0.02,
+      "moderate": 0.05,
+      "severe": 0.08
+    },
+    "sudden_drop_v": {
+      "mild": 0.5,
+      "moderate": 1.0,
+      "severe": 1.5
+    },
+    "sudden_ramp_seconds": 0.4,
+    "progressive_max_delta_r_ohm": {
+      "mild": 0.02,
+      "moderate": 0.05,
+      "severe": 0.08
+    },
+    "observability_max_sag_v": {
+      "very_low": 0.05,
+      "low": 0.2,
+      "medium": 0.5
+    }
+  },
+  "sample_metric_policy": "reference-ready samples; conventional confusion counts separate from incident success",
+  "duration_policy": "observed ready intervals only, both endpoints ready; no gaps/warm-up",
+  "feature_manifest_sha256": "c102814929b097f9fa3e2f993bedf2348471fcd625d524a8aee2fd7c6ca02f85",
+  "data_sha256": "bc83a9a1bde9dc2412c1ce80429a336bead23df4daf97c12f3cb8ed554019368",
+  "config_sha256": "6ba44bcae775eacad4beeae687cfa5a4f47cb0d9f63cdcecab6285438a435074",
+  "dependency_versions": {
+    "python": "3.13.3",
+    "packages": {
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scikit-learn": "1.9.1",
+      "PyYAML": "6.0.3",
+      "pytest": "9.1.1",
+      "matplotlib": "3.11.2",
+      "joblib": "1.6.0"
+    }
+  }
+}

@@ -1,0 +1,95 @@
+version: 2
+random_seed: 42
+data:
+  path: data/raw/dataset_baterai.csv
+  required_columns: [NamaFile, TimeUS, Inst, Volt, Curr, CurrTot]
+  healthy_status: assumed_from_source
+  currtot_unit: unverified
+  instance_policy: reject_multiple_instances_without_explicit_selection
+time:
+  nominal_frequency_hz: 10.0
+  max_gap_multiplier: 5.0
+activity:
+  min_current_a: 1.0
+  min_duration_seconds: 1.0
+  min_active_time_percentage: 5.0
+  duration_basis: observed_valid_intervals
+reference_voltage:
+  strategy: causal_fixed_warmup
+  warmup_seconds: 2.0
+  low_current_max_a: 1.0
+  min_low_current_samples: 5
+  unavailable_policy: mark_not_ready_and_report_coverage
+features:
+  operational_set: battery_d
+  rolling_windows_seconds: [0.5, 1.0]
+  regression_predictors: [Curr, CurrTot, dI_dt, Curr_roll_mean_0p5s, Curr_roll_std_0p5s, Curr_roll_mean_1p0s, Curr_roll_std_1p0s]
+  baseline_predictors: [voltage_sag_actual, Curr, CurrTot, dV_dt, dI_dt]
+operational_detector:
+  model: HistGradientBoostingRegressor
+  method: positive_residual
+models:
+  hist_gradient_boosting:
+    max_iter: 200
+    learning_rate: 0.05
+    max_leaf_nodes: 31
+    l2_regularization: 0.1
+  random_forest:
+    n_estimators: 200
+    min_samples_leaf: 2
+    n_jobs: -1
+  isolation_forest:
+    n_estimators: 200
+    max_samples: 256
+    contamination: auto
+  one_class_svm:
+    kernel: rbf
+    nu: 0.01
+    gamma: scale
+    max_train_samples: 2500
+evaluation:
+  primary: leave_one_active_load_flight_out
+  validation_selection: cyclic_next_complete_flight
+  minimum_active_flights: 3
+  tuning_scope: development_only
+  deadlines_seconds: [1.0, 2.0, 5.0, 10.0, 30.0]
+threshold:
+  method: healthy_validation_percentile
+  reference_percentile: 99.0
+  candidates: [95.0, 97.5, 99.0, 99.5]
+persistence:
+  mode: time
+  reference_duration_seconds: 0.5
+  candidates_seconds: [0.2, 0.3, 0.5, 0.7, 1.0]
+dual_path:
+  enabled: false
+  slope_windows_seconds: [0.3, 0.5, 1.0]
+  high_percentiles: [99.0, 99.5]
+  low_percentiles: [95.0, 97.5, 99.0]
+  slope_percentiles: [95.0, 97.5, 99.0, 99.5]
+  path_b_persistence_seconds: [0.3, 0.5]
+  refinement_max_candidates: 3
+fault_injection:
+  active_load_only_for_current_dependent_faults: true
+  start_positions: [0.4, 0.5, 0.6]
+  resistance_ohm: {mild: 0.02, moderate: 0.05, severe: 0.08}
+  sudden_drop_v: {mild: 0.5, moderate: 1.0, severe: 1.5}
+  sudden_ramp_seconds: 0.4
+  progressive_max_delta_r_ohm: {mild: 0.02, moderate: 0.05, severe: 0.08}
+  observability_max_sag_v: {very_low: 0.05, low: 0.20, medium: 0.50}
+promotion:
+  max_mean_healthy_fpr_increase: 0.0
+  max_mean_episodes_per_minute_increase: 0.0
+  require_f1_non_decrease: true
+  require_deadline_non_decrease: true
+  require_mean_delay_improvement: true
+research_targets:
+  abrupt_severe_rate_le_1s: 0.80
+  gradual_observable_rate_le_5s: 0.70
+  status: aspirational_not_measured
+artifacts:
+  root: artifacts
+replay:
+  enabled: false
+  nominal_rate_hz: 10.0
+  require_batch_equivalence: true

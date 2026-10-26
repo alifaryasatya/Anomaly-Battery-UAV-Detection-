@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-22",
+  "scope": "post_hoc_diagnosis_only_no_refinement",
+  "target": "00000066.BIN",
+  "control": "00000070.BIN",
+  "control_rule": "minimum historical confirmed FPR among other active held-out tests; filename ascending tie-break; descriptive control selected using already observed results",
+  "supplementary_same_model_flight": "00000069.BIN, original fold00 validation; explicitly calibration diagnostic, not independent test",
+  "no_fit_tuning_or_policy_changes": true,
+  "ready_only_rates": true,
+  "predictors_unchanged": true,
+  "episode_duration": "last confirmed minus first confirmed timestamp, no extension across gaps; raw-to-confirm span separate",
+  "transient_rule": "training-only P95 |dI/dt| OR P95 1s current std for descriptive context only",
+  "bias_rule": "fixed nonoverlapping 10s blocks per segment; no threshold or model selection",
+  "healthy_status": "assumed_from_source"
+}

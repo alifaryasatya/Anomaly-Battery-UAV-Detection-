@@ -1,0 +1,181 @@
+{
+  "status": "PASS",
+  "freeze_manifest_sha256": "a8a21afc97b182e8507b540125a0f47db2cbef798bd0d2e5eb112441caef9cae",
+  "frozen_files": 21,
+  "inspection": {
+    "status": "OK",
+    "command": "inspect",
+    "project_root": "C:\\Skripsi2\\HGB V2",
+    "config_path": "C:\\Skripsi2\\HGB V2\\configs\\config.yaml",
+    "data_path": "C:\\Skripsi2\\HGB V2\\data\\raw\\dataset_baterai.csv",
+    "artifacts_root": "C:\\Skripsi2\\HGB V2\\artifacts",
+    "data_sha256": "bc83a9a1bde9dc2412c1ce80429a336bead23df4daf97c12f3cb8ed554019368",
+    "config_sha256": "a0e0443f75c35caf2579834430e97537d73e29836c5cda8625489e548baf93e9",
+    "random_seed": 42,
+    "gap_threshold_seconds": 0.5,
+    "columns": [
+      "NamaFile",
+      "TimeUS",
+      "Inst",
+      "Volt",
+      "Curr",
+      "CurrTot"
+    ],
+    "rows": 32338,
+    "flights": 17,
+    "per_flight": [
+      {
+        "NamaFile": "00000061.BIN",
+        "samples": 421,
+        "raw_instances": [
+          "0"
+        ],
+        "v2_load_label": "NOT_COMPUTED"
+      },
+      {
+        "NamaFile": "00000062.BIN",
+        "samples": 486,
+        "raw_instances": [
+          "0"
+        ],
+        "v2_load_label": "NOT_COMPUTED"
+      },
+      {
+        "NamaFile": "00000063.BIN",
+        "samples": 353,
+        "raw_instances": [
+          "0"
+        ],
+        "v2_load_label": "NOT_COMPUTED"
+      },
+      {
+        "NamaFile": "00000064.BIN",
+        "samples": 1088,
+        "raw_instances": [
+          "0"
+        ],
+        "v2_load_label": "NOT_COMPUTED"
+      },
+      {
+        "NamaFile": "00000065.BIN",
+        "samples": 146,
+        "raw_instances": [
+          "0"
+        ],
+        "v2_load_label": "NOT_COMPUTED"
+      },
+      {
+        "NamaFile": "00000066.BIN",
+        "samples": 9526,
+        "raw_instances": [
+          "0"
+        ],
+        "v2_load_label": "NOT_COMPUTED"
+      },
+      {
+        "NamaFile": "00000067.BIN",
+        "samples": 144,
+        "raw_instances": [
+          "0"
+        ],
+        "v2_load_label": "NOT_COMPUTED"
+      },
+      {
+        "NamaFile": "00000068.BIN",
+        "samples": 588,
+        "raw_instances": [
+          "0"
+        ],
+        "v2_load_label": "NOT_COMPUTED"
+      },
+      {
+        "NamaFile": "00000069.BIN",
+        "samples": 1642,
+        "raw_instances": [
+          "0"
+        ],
+        "v2_load_label": "NOT_COMPUTED"
+      },
+      {
+        "NamaFile": "00000070.BIN",
+        "samples": 1664,
+        "raw_instances": [
+          "0"
+        ],
+        "v2_load_label": "NOT_COMPUTED"
+      },
+      {
+        "NamaFile": "00000071.BIN",
+        "samples": 1006,
+        "raw_instances": [
+          "0"
+        ],
+        "v2_load_label": "NOT_COMPUTED"
+      },
+      {
+        "NamaFile": "00000072.BIN",
+        "samples": 369,
+        "raw_instances": [
+          "0"
+        ],
+        "v2_load_label": "NOT_COMPUTED"
+      },
+      {
+        "NamaFile": "00000073.BIN",
+        "samples": 8738,
+        "raw_instances": [
+          "0"
+        ],
+        "v2_load_label": "NOT_COMPUTED"
+      },
+      {
+        "NamaFile": "00000074.BIN",
+        "samples": 4415,
+        "raw_instances": [
+          "0"
+        ],
+        "v2_load_label": "NOT_COMPUTED"
+      },
+      {
+        "NamaFile": "00000075.BIN",
+        "samples": 328,
+        "raw_instances": [
+          "0"
+        ],
+        "v2_load_label": "NOT_COMPUTED"
+      },
+      {
+        "NamaFile": "00000076.BIN",
+        "samples": 739,
+        "raw_instances": [
+          "0"
+        ],
+        "v2_load_label": "NOT_COMPUTED"
+      },
+      {
+        "NamaFile": "00000077.BIN",
+        "samples": 685,
+        "raw_instances": [
+          "0"
+        ],
+        "v2_load_label": "NOT_COMPUTED"
+      }
+    ],
+    "currtot_unit": "unverified",
+    "healthy_status": "assumed_from_source",
+    "inspection_scope": "CSV schema, identity and counts; numerical audit/activity deferred to Stage 2",
+    "model_training_performed": false
+  },
+  "current_dependency_versions": {
+    "python": "3.13.3",
+    "packages": {
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scikit-learn": "1.9.1",
+      "PyYAML": "6.0.3",
+      "matplotlib": "3.11.2",
+      "joblib": "1.6.0"
+    }
+  },
+  "experiment_protocol_sha256": "e9c5ebfb5b84ed7bc4b4eeb66f6217a24c62598efa2ca62cba9a85261c8f5b2a"
+}

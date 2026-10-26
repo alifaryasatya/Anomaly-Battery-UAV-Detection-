@@ -1,0 +1,128 @@
+{
+  "status": "OK",
+  "command": "research-evaluation",
+  "run_id": "4ad7e153513e7d64",
+  "output_directory": "C:\\Skripsi2\\HGB V2\\artifacts\\research_evaluation\\4ad7e153513e7d64",
+  "evaluation_scope": "historical_development_research_consolidation",
+  "data_sha256": "bc83a9a1bde9dc2412c1ce80429a336bead23df4daf97c12f3cb8ed554019368",
+  "source_stages": 10,
+  "verified_source_files": 4532,
+  "model_bundle_references": 103,
+  "source_stages_built_at_creation": [],
+  "training_stages_built_at_creation": [],
+  "synthetic_series": 19,
+  "grouped_metric_rows": 361,
+  "failed_or_not_applicable_cases": 615,
+  "baseline_healthy_active": {
+    "ready_samples": 26870,
+    "raw_alarm_samples": 3607,
+    "confirmed_alarm_samples": 3178,
+    "raw_fpr": 0.1342389281726833,
+    "confirmed_fpr": 0.11827316710085597,
+    "confirmed_episodes": 29,
+    "observed_ready_seconds": 2683.400543,
+    "confirmed_episodes_per_minute": 0.6484309636662393
+  },
+  "baseline_synthetic": {
+    "scenarios": 162,
+    "applicable_scenarios": 162,
+    "not_applicable_scenarios": 0,
+    "detected_scenarios": 156,
+    "undetected_scenarios": 6,
+    "preexisting_alarm_scenarios": 0,
+    "undetected_without_preexisting": 6,
+    "incident_recall": 0.9629629629629629,
+    "tp": 66440,
+    "fp": 85257,
+    "tn": 557877,
+    "fn": 15916,
+    "precision": 0.4379783383982544,
+    "recall": 0.8067414638884841,
+    "f1": 0.5677346583893391,
+    "synthetic_sample_fpr": 0.13256490871264776,
+    "delay_detected_n": 156,
+    "delay_mean_seconds": 5.526932442307692,
+    "delay_median_seconds": 0.699965,
+    "delay_std_seconds": 10.035912646362517,
+    "pre_fault_samples": 286635,
+    "pre_fault_confirmed_alarm_samples": 6075,
+    "pre_fault_fpr": 0.02119420168506986,
+    "deadline_le_1s_successes": 101,
+    "deadline_le_1s_rate": 0.6234567901234568,
+    "deadline_le_2s_successes": 102,
+    "deadline_le_2s_rate": 0.6296296296296297,
+    "deadline_le_5s_successes": 115,
+    "deadline_le_5s_rate": 0.7098765432098766,
+    "deadline_le_10s_successes": 129,
+    "deadline_le_10s_rate": 0.7962962962962963,
+    "deadline_le_30s_successes": 149,
+    "deadline_le_30s_rate": 0.9197530864197531
+  },
+  "baseline_target_checks": {
+    "abrupt_severe": {
+      "rate": 1.0,
+      "target": 0.8,
+      "applicable": 36,
+      "status": "MET"
+    },
+    "gradual_observable": {
+      "rate": 0.23529411764705882,
+      "target": 0.7,
+      "applicable": 51,
+      "status": "NOT_MET"
+    }
+  },
+  "low_load_primary": {
+    "fold_id": "fold_00",
+    "unique_flights": 11,
+    "ready_samples": 5119,
+    "raw_alarm_samples": 0,
+    "confirmed_alarm_samples": 0,
+    "confirmed_episodes": 0,
+    "observed_ready_seconds": 506.599454,
+    "raw_fpr": 0.0,
+    "confirmed_fpr": 0.0,
+    "confirmed_episodes_per_minute": 0.0
+  },
+  "low_load_model_sensitivity": {
+    "raw_fpr": {
+      "n_defined": 6,
+      "mean": 0.011232662629419809,
+      "std": 0.02383057804015599,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.06446571596014847
+    },
+    "confirmed_fpr": {
+      "n_defined": 6,
+      "mean": 0.005014000130233769,
+      "std": 0.01086593810460423,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.029302598163703848
+    },
+    "confirmed_episodes": {
+      "n_defined": 6,
+      "mean": 0.6666666666666666,
+      "std": 1.1055415967851332,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 3.0
+    },
+    "confirmed_episodes_per_minute": {
+      "n_defined": 6,
+      "mean": 0.07895784269834606,
+      "std": 0.1309367692431583,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.35531029214255727
+    }
+  },
+  "dual_promotion": "NOT_PROMOTED",
+  "operational_config_changed": false,
+  "operational_dual_path_enabled": false,
+  "selected_new_winner": null,
+  "independent_final_holdout": false,
+  "replay_evaluated": false,
+  "deployment_status": "RESEARCH_CONSOLIDATION_ONLY"
+}

@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+artifacts/
+data/processed/
+data/synthetic/
+data/active_healthy_flights/
+Proposal_Skripsi_Alif_Aryasatya_Rofiq.md
+Format strutur penulisan.md

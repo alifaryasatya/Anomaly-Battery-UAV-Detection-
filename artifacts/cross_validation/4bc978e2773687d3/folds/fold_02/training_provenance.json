@@ -1,0 +1,22 @@
+{
+  "train_flights": [
+    "00000066.BIN",
+    "00000069.BIN",
+    "00000073.BIN",
+    "00000074.BIN"
+  ],
+  "ready_training_samples": 24241,
+  "samples_per_flight": {
+    "00000066.BIN": 9506,
+    "00000069.BIN": 1622,
+    "00000073.BIN": 8718,
+    "00000074.BIN": 4395
+  },
+  "low_current_training_samples": 11701,
+  "training_rows_sha256": "651a8c5eaf38dea27e68f0a58986c4bcefdaed05001e39b32bbfffc133ae6d5e",
+  "healthy_status": "assumed_from_source",
+  "synthetic_rows": 0,
+  "scaler": null,
+  "early_stopping": false,
+  "fitted_iterations": 200
+}

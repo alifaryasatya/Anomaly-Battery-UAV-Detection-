@@ -1,0 +1,275 @@
+{
+  "experiment": "sprint11_research_final_orchestration",
+  "evaluation_scope": "historical_development_research_consolidation",
+  "config": {
+    "version": 2,
+    "random_seed": 42,
+    "data": {
+      "path": "data/raw/dataset_baterai.csv",
+      "required_columns": [
+        "NamaFile",
+        "TimeUS",
+        "Inst",
+        "Volt",
+        "Curr",
+        "CurrTot"
+      ],
+      "healthy_status": "assumed_from_source",
+      "currtot_unit": "unverified",
+      "instance_policy": "reject_multiple_instances_without_explicit_selection"
+    },
+    "time": {
+      "nominal_frequency_hz": 10.0,
+      "max_gap_multiplier": 5.0
+    },
+    "activity": {
+      "min_current_a": 1.0,
+      "min_duration_seconds": 1.0,
+      "min_active_time_percentage": 5.0,
+      "duration_basis": "observed_valid_intervals"
+    },
+    "reference_voltage": {
+      "strategy": "causal_fixed_warmup",
+      "warmup_seconds": 2.0,
+      "low_current_max_a": 1.0,
+      "min_low_current_samples": 5,
+      "unavailable_policy": "mark_not_ready_and_report_coverage"
+    },
+    "features": {
+      "operational_set": "battery_d",
+      "rolling_windows_seconds": [
+        0.5,
+        1.0
+      ],
+      "regression_predictors": [
+        "Curr",
+        "CurrTot",
+        "dI_dt",
+        "Curr_roll_mean_0p5s",
+        "Curr_roll_std_0p5s",
+        "Curr_roll_mean_1p0s",
+        "Curr_roll_std_1p0s"
+      ],
+      "baseline_predictors": [
+        "voltage_sag_actual",
+        "Curr",
+        "CurrTot",
+        "dV_dt",
+        "dI_dt"
+      ]
+    },
+    "operational_detector": {
+      "model": "HistGradientBoostingRegressor",
+      "method": "positive_residual"
+    },
+    "models": {
+      "hist_gradient_boosting": {
+        "max_iter": 200,
+        "learning_rate": 0.05,
+        "max_leaf_nodes": 31,
+        "l2_regularization": 0.1
+      },
+      "random_forest": {
+        "n_estimators": 200,
+        "min_samples_leaf": 2,
+        "n_jobs": -1
+      },
+      "isolation_forest": {
+        "n_estimators": 200,
+        "max_samples": 256,
+        "contamination": "auto"
+      },
+      "one_class_svm": {
+        "kernel": "rbf",
+        "nu": 0.01,
+        "gamma": "scale",
+        "max_train_samples": 2500
+      }
+    },
+    "evaluation": {
+      "primary": "leave_one_active_load_flight_out",
+      "validation_selection": "cyclic_next_complete_flight",
+      "minimum_active_flights": 3,
+      "tuning_scope": "development_only",
+      "deadlines_seconds": [
+        1.0,
+        2.0,
+        5.0,
+        10.0,
+        30.0
+      ]
+    },
+    "threshold": {
+      "method": "healthy_validation_percentile",
+      "reference_percentile": 99.0,
+      "candidates": [
+        95.0,
+        97.5,
+        99.0,
+        99.5
+      ]
+    },
+    "persistence": {
+      "mode": "time",
+      "reference_duration_seconds": 0.5,
+      "candidates_seconds": [
+        0.2,
+        0.3,
+        0.5,
+        0.7,
+        1.0
+      ]
+    },
+    "dual_path": {
+      "enabled": false,
+      "slope_windows_seconds": [
+        0.3,
+        0.5,
+        1.0
+      ],
+      "high_percentiles": [
+        99.0,
+        99.5
+      ],
+      "low_percentiles": [
+        95.0,
+        97.5,
+        99.0
+      ],
+      "slope_percentiles": [
+        95.0,
+        97.5,
+        99.0,
+        99.5
+      ],
+      "path_b_persistence_seconds": [
+        0.3,
+        0.5
+      ],
+      "refinement_max_candidates": 3
+    },
+    "fault_injection": {
+      "active_load_only_for_current_dependent_faults": true,
+      "start_positions": [
+        0.4,
+        0.5,
+        0.6
+      ],
+      "resistance_ohm": {
+        "mild": 0.02,
+        "moderate": 0.05,
+        "severe": 0.08
+      },
+      "sudden_drop_v": {
+        "mild": 0.5,
+        "moderate": 1.0,
+        "severe": 1.5
+      },
+      "sudden_ramp_seconds": 0.4,
+      "progressive_max_delta_r_ohm": {
+        "mild": 0.02,
+        "moderate": 0.05,
+        "severe": 0.08
+      },
+      "observability_max_sag_v": {
+        "very_low": 0.05,
+        "low": 0.2,
+        "medium": 0.5
+      }
+    },
+    "promotion": {
+      "max_mean_healthy_fpr_increase": 0.0,
+      "max_mean_episodes_per_minute_increase": 0.0,
+      "require_f1_non_decrease": true,
+      "require_deadline_non_decrease": true,
+      "require_mean_delay_improvement": true
+    },
+    "research_targets": {
+      "abrupt_severe_rate_le_1s": 0.8,
+      "gradual_observable_rate_le_5s": 0.7,
+      "status": "aspirational_not_measured"
+    },
+    "artifacts": {
+      "root": "artifacts"
+    },
+    "replay": {
+      "enabled": false,
+      "nominal_rate_hz": 10.0,
+      "require_batch_equivalence": true
+    }
+  },
+  "data_sha256": "bc83a9a1bde9dc2412c1ce80429a336bead23df4daf97c12f3cb8ed554019368",
+  "freeze_manifest_sha256": "a8a21afc97b182e8507b540125a0f47db2cbef798bd0d2e5eb112441caef9cae",
+  "experiment_protocol_sha256": "e9c5ebfb5b84ed7bc4b4eeb66f6217a24c62598efa2ca62cba9a85261c8f5b2a",
+  "dependency_versions": {
+    "python": "3.13.3",
+    "packages": {
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "scikit-learn": "1.9.1",
+      "PyYAML": "6.0.3",
+      "matplotlib": "3.11.2",
+      "joblib": "1.6.0"
+    }
+  },
+  "stage_order": [
+    "preprocess",
+    "features",
+    "baseline",
+    "inject-faults",
+    "cross-validate",
+    "ablation",
+    "compare-models",
+    "tune",
+    "tune-dual-path",
+    "evaluate-low-load"
+  ],
+  "source_rule": "catalog, else explicit historical pointer, else build missing; corrupt results fail without rebuilding",
+  "selection_rule": "fixed engine/config candidate budgets; validation-only selection, ALL candidates/folds frozen before each experiment's outer evaluation",
+  "cross_experiment_rule": "sequential historical development experiments, not a global prospective holdout; no outer-selected winner or policy revision",
+  "low_load_rule": "same unique cohort under frozen baseline folds; no repeated exposure pooling",
+  "operational_config_changed": false,
+  "independent_final_holdout": false,
+  "replay_evaluated": false,
+  "code_sha256": {
+    "main.py": "62cbb6a9d10f751a08428af40e5a2aa6f38aebdf10132c67d5469b67a2268486",
+    "src/__init__.py": "cd17c4d09fd54b011f6eae392752acd4cd8c686f0189c1f356403514030de130",
+    "src/activity.py": "e3204498f192d3a14ca912d6ed528b4b6dd7ef3a15a9a65cd5ef79a7eaad8dc1",
+    "src/comparison.py": "b782bce057d1ebe4eabb8f69f365f32707f7f8c64ede9d99d0e6f145ac5641ec",
+    "src/comparison_reporting.py": "f3b6c47c4a8085da90ce908c7afb741c1ed25a831e3fa8889b96763f60fab58e",
+    "src/config.py": "47fdc22a2335d680be5ddf1875fa2d175225bff4e32d167b2df8f981580684b5",
+    "src/cross_validation.py": "7251854bf30c422d3be3c539eb301796d5610cba8d1908b890516c8e09a72058",
+    "src/cv_reporting.py": "15a55ed4f4cde342801cd93052271c5e55a8e34633a0bce58289ae0ea1dfc81e",
+    "src/data_loader.py": "c574ca8b326c7f0db957852c1b4fae1c4afebde313184384c20c780887e9c0c9",
+    "src/detectors.py": "3a19cc26a67fcadfff82bef15f9b38e9c68dc32c0737ebf6e6be66945d15e482",
+    "src/dual_detector.py": "9032649648905cbb92b67ca0676afb2d89b870b6a8aa4820810a115674748d97",
+    "src/dual_path_experiment.py": "89790adeedb5c04850ecd96a68ac14c9cfeacdb4d9627d136407be200af29722",
+    "src/dual_reporting.py": "061d490522ad974803b8fc4f4a031a2ef211443b3f3ee51cfd88f63ec92a0821",
+    "src/errors.py": "a6e6a90283d114f92dd560ccd51cec51885c94a3656d657403a2505f1f5b809c",
+    "src/evaluation.py": "f720ee73ac8f38a1342a103fb34cb71676488648907630058473e826f729ba97",
+    "src/experimental_models.py": "13ca51478fb38bb273f50d8be4702cb03e6219dbcde892211bc8c3b790f50334",
+    "src/fault_injection.py": "3c6fe7e0c9874146d85a65667eda4b6c4afa59a161db2c840198b5c1920236ee",
+    "src/fault_reporting.py": "1f7632ef7eaa699f3f8bb32b989b85714cabc73038eb04a94dfbd590c9cc318b",
+    "src/feature_sets.py": "ad9743a72accc1a4d94de79bbff0298aac143359ba52d9fc3459e03178c4b533",
+    "src/features.py": "a6ce9658957c62d206b0a6de69f6d551e5a50c1829425795a22cdbacea012fd0",
+    "src/loafo.py": "e180657cd7b88dbb7b455c531dbd099796e6fb92d47ad5388041cde0bcf9d65f",
+    "src/low_load.py": "6d0be6f9deab1398ea799c5ee96eb2b2b793a9bf3d96768fb91144694bc06341",
+    "src/low_load_reporting.py": "8e833849f01e9af70fa2fb554d03e37503d117457814e10d7b1afc188bc7a006",
+    "src/models.py": "54a4f91483f642ed86e567ac29c66ab5f71e49c1b25780f0126926f9185e8762",
+    "src/persistence.py": "961e72e50c472c52e0e65ffad9a9c68d0a94b5056f3462f94738b5f9e6f6cfc4",
+    "src/pilot_reporting.py": "31134ab5a63d7d176e89136119b18dac3f24dc11dfe9423ca4b12f32139cf92d",
+    "src/preprocessing.py": "f29b8be8a145495832fd96949db712e00e995c297ebc59809c1109e904b200cf",
+    "src/provenance.py": "a0828ad32098807d8df1a7539e537aa0c01e3936e7a5dcc049ac46f1571b39b7",
+    "src/replay.py": "b978e91b645f9da320951ae0afeecb2577ecc06fa73eaa363a238a6718dd04ae",
+    "src/replay_experiment.py": "92aed41a7dd67fd7f275d4acd5f4e4519cc4c72de845b5cc4577ddb043761b73",
+    "src/replay_reporting.py": "22785a1cbc3c1fc70658f3c7f6e5882411510c743922362b4869b69fae680d4a",
+    "src/reporting.py": "8764edd2fd6721534d163478f739a13bec8a177eb87d0bd87e129143d45a2027",
+    "src/research.py": "0c8a8a75704b88f433e2f4869360165e0741dbc9f9f3f916835b69432e30e496",
+    "src/research_reporting.py": "8231fcfc551be0c1d42fc053df98b7dfab9c0a28c769766276764e1b310f8395",
+    "src/research_sources.py": "e55418251e394020fcb38c94e6bce7dae38090e094e0adda5637fa0a58e9d1a0",
+    "src/residual_diagnostics.py": "8a3252819a085d26aec70ca29b850df2f4b4300b6cd5eb5e44f60ae6a7ba4d8f",
+    "src/single_path_tuning.py": "82dec110aab4e0d83fb2e02a95ebfdeeb6d340e46d35a2111bb19fdf3e38c0a9",
+    "src/tuning.py": "f82dc259236d85f2511440ebe6167402484ab96c1abc28e35e0dccab3100c1d5",
+    "src/tuning_reporting.py": "d4f29a3df54811a2f9107600e1bbe0f372e79d2d71a7486c7823a1e580e1a0f5"
+  }
+}

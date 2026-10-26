@@ -1,0 +1,7 @@
+fold_id,test_flight,unseen_by_model,used_for_threshold,ready_samples,raw_alarm_samples,confirmed_alarm_samples,raw_fpr,confirmed_fpr,confirmed_episodes,observed_ready_seconds,confirmed_episodes_per_minute
+fold_00,00000066.BIN,True,False,9506,3447,3168,0.3626130864717021,0.3332632021880917,26,949.099397,1.6436634613097327
+fold_01,00000069.BIN,True,False,1622,67,8,0.0413070283600493,0.0049321824907521,2,161.999919,0.7407411111112963
+fold_02,00000070.BIN,True,False,1643,0,0,0.0,0.0,0,164.100118,0.0
+fold_03,00000071.BIN,True,False,986,2,0,0.0020283975659229,0.0,0,98.299889,0.0
+fold_04,00000073.BIN,True,False,8718,91,2,0.0104381738930947,0.0002294104152328,1,870.80123,0.0689020616105468
+fold_05,00000074.BIN,True,False,4395,0,0,0.0,0.0,0,439.09999,0.0

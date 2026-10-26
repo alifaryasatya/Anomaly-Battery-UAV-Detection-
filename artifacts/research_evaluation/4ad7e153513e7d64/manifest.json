@@ -1,0 +1,421 @@
+{
+  "run_id": "4ad7e153513e7d64",
+  "identity": {
+    "plan": {
+      "experiment": "sprint11_research_final_orchestration",
+      "evaluation_scope": "historical_development_research_consolidation",
+      "config": {
+        "version": 2,
+        "random_seed": 42,
+        "data": {
+          "path": "data/raw/dataset_baterai.csv",
+          "required_columns": [
+            "NamaFile",
+            "TimeUS",
+            "Inst",
+            "Volt",
+            "Curr",
+            "CurrTot"
+          ],
+          "healthy_status": "assumed_from_source",
+          "currtot_unit": "unverified",
+          "instance_policy": "reject_multiple_instances_without_explicit_selection"
+        },
+        "time": {
+          "nominal_frequency_hz": 10.0,
+          "max_gap_multiplier": 5.0
+        },
+        "activity": {
+          "min_current_a": 1.0,
+          "min_duration_seconds": 1.0,
+          "min_active_time_percentage": 5.0,
+          "duration_basis": "observed_valid_intervals"
+        },
+        "reference_voltage": {
+          "strategy": "causal_fixed_warmup",
+          "warmup_seconds": 2.0,
+          "low_current_max_a": 1.0,
+          "min_low_current_samples": 5,
+          "unavailable_policy": "mark_not_ready_and_report_coverage"
+        },
+        "features": {
+          "operational_set": "battery_d",
+          "rolling_windows_seconds": [
+            0.5,
+            1.0
+          ],
+          "regression_predictors": [
+            "Curr",
+            "CurrTot",
+            "dI_dt",
+            "Curr_roll_mean_0p5s",
+            "Curr_roll_std_0p5s",
+            "Curr_roll_mean_1p0s",
+            "Curr_roll_std_1p0s"
+          ],
+          "baseline_predictors": [
+            "voltage_sag_actual",
+            "Curr",
+            "CurrTot",
+            "dV_dt",
+            "dI_dt"
+          ]
+        },
+        "operational_detector": {
+          "model": "HistGradientBoostingRegressor",
+          "method": "positive_residual"
+        },
+        "models": {
+          "hist_gradient_boosting": {
+            "max_iter": 200,
+            "learning_rate": 0.05,
+            "max_leaf_nodes": 31,
+            "l2_regularization": 0.1
+          },
+          "random_forest": {
+            "n_estimators": 200,
+            "min_samples_leaf": 2,
+            "n_jobs": -1
+          },
+          "isolation_forest": {
+            "n_estimators": 200,
+            "max_samples": 256,
+            "contamination": "auto"
+          },
+          "one_class_svm": {
+            "kernel": "rbf",
+            "nu": 0.01,
+            "gamma": "scale",
+            "max_train_samples": 2500
+          }
+        },
+        "evaluation": {
+          "primary": "leave_one_active_load_flight_out",
+          "validation_selection": "cyclic_next_complete_flight",
+          "minimum_active_flights": 3,
+          "tuning_scope": "development_only",
+          "deadlines_seconds": [
+            1.0,
+            2.0,
+            5.0,
+            10.0,
+            30.0
+          ]
+        },
+        "threshold": {
+          "method": "healthy_validation_percentile",
+          "reference_percentile": 99.0,
+          "candidates": [
+            95.0,
+            97.5,
+            99.0,
+            99.5
+          ]
+        },
+        "persistence": {
+          "mode": "time",
+          "reference_duration_seconds": 0.5,
+          "candidates_seconds": [
+            0.2,
+            0.3,
+            0.5,
+            0.7,
+            1.0
+          ]
+        },
+        "dual_path": {
+          "enabled": false,
+          "slope_windows_seconds": [
+            0.3,
+            0.5,
+            1.0
+          ],
+          "high_percentiles": [
+            99.0,
+            99.5
+          ],
+          "low_percentiles": [
+            95.0,
+            97.5,
+            99.0
+          ],
+          "slope_percentiles": [
+            95.0,
+            97.5,
+            99.0,
+            99.5
+          ],
+          "path_b_persistence_seconds": [
+            0.3,
+            0.5
+          ],
+          "refinement_max_candidates": 3
+        },
+        "fault_injection": {
+          "active_load_only_for_current_dependent_faults": true,
+          "start_positions": [
+            0.4,
+            0.5,
+            0.6
+          ],
+          "resistance_ohm": {
+            "mild": 0.02,
+            "moderate": 0.05,
+            "severe": 0.08
+          },
+          "sudden_drop_v": {
+            "mild": 0.5,
+            "moderate": 1.0,
+            "severe": 1.5
+          },
+          "sudden_ramp_seconds": 0.4,
+          "progressive_max_delta_r_ohm": {
+            "mild": 0.02,
+            "moderate": 0.05,
+            "severe": 0.08
+          },
+          "observability_max_sag_v": {
+            "very_low": 0.05,
+            "low": 0.2,
+            "medium": 0.5
+          }
+        },
+        "promotion": {
+          "max_mean_healthy_fpr_increase": 0.0,
+          "max_mean_episodes_per_minute_increase": 0.0,
+          "require_f1_non_decrease": true,
+          "require_deadline_non_decrease": true,
+          "require_mean_delay_improvement": true
+        },
+        "research_targets": {
+          "abrupt_severe_rate_le_1s": 0.8,
+          "gradual_observable_rate_le_5s": 0.7,
+          "status": "aspirational_not_measured"
+        },
+        "artifacts": {
+          "root": "artifacts"
+        },
+        "replay": {
+          "enabled": false,
+          "nominal_rate_hz": 10.0,
+          "require_batch_equivalence": true
+        }
+      },
+      "data_sha256": "bc83a9a1bde9dc2412c1ce80429a336bead23df4daf97c12f3cb8ed554019368",
+      "freeze_manifest_sha256": "a8a21afc97b182e8507b540125a0f47db2cbef798bd0d2e5eb112441caef9cae",
+      "experiment_protocol_sha256": "e9c5ebfb5b84ed7bc4b4eeb66f6217a24c62598efa2ca62cba9a85261c8f5b2a",
+      "dependency_versions": {
+        "python": "3.13.3",
+        "packages": {
+          "numpy": "2.5.4",
+          "pandas": "3.0.6",
+          "scikit-learn": "1.9.1",
+          "PyYAML": "6.0.3",
+          "matplotlib": "3.11.2",
+          "joblib": "1.6.0"
+        }
+      },
+      "stage_order": [
+        "preprocess",
+        "features",
+        "baseline",
+        "inject-faults",
+        "cross-validate",
+        "ablation",
+        "compare-models",
+        "tune",
+        "tune-dual-path",
+        "evaluate-low-load"
+      ],
+      "source_rule": "catalog, else explicit historical pointer, else build missing; corrupt results fail without rebuilding",
+      "selection_rule": "fixed engine/config candidate budgets; validation-only selection, ALL candidates/folds frozen before each experiment's outer evaluation",
+      "cross_experiment_rule": "sequential historical development experiments, not a global prospective holdout; no outer-selected winner or policy revision",
+      "low_load_rule": "same unique cohort under frozen baseline folds; no repeated exposure pooling",
+      "operational_config_changed": false,
+      "independent_final_holdout": false,
+      "replay_evaluated": false,
+      "code_sha256": {
+        "main.py": "62cbb6a9d10f751a08428af40e5a2aa6f38aebdf10132c67d5469b67a2268486",
+        "src/__init__.py": "cd17c4d09fd54b011f6eae392752acd4cd8c686f0189c1f356403514030de130",
+        "src/activity.py": "e3204498f192d3a14ca912d6ed528b4b6dd7ef3a15a9a65cd5ef79a7eaad8dc1",
+        "src/comparison.py": "b782bce057d1ebe4eabb8f69f365f32707f7f8c64ede9d99d0e6f145ac5641ec",
+        "src/comparison_reporting.py": "f3b6c47c4a8085da90ce908c7afb741c1ed25a831e3fa8889b96763f60fab58e",
+        "src/config.py": "47fdc22a2335d680be5ddf1875fa2d175225bff4e32d167b2df8f981580684b5",
+        "src/cross_validation.py": "7251854bf30c422d3be3c539eb301796d5610cba8d1908b890516c8e09a72058",
+        "src/cv_reporting.py": "15a55ed4f4cde342801cd93052271c5e55a8e34633a0bce58289ae0ea1dfc81e",
+        "src/data_loader.py": "c574ca8b326c7f0db957852c1b4fae1c4afebde313184384c20c780887e9c0c9",
+        "src/detectors.py": "3a19cc26a67fcadfff82bef15f9b38e9c68dc32c0737ebf6e6be66945d15e482",
+        "src/dual_detector.py": "9032649648905cbb92b67ca0676afb2d89b870b6a8aa4820810a115674748d97",
+        "src/dual_path_experiment.py": "89790adeedb5c04850ecd96a68ac14c9cfeacdb4d9627d136407be200af29722",
+        "src/dual_reporting.py": "061d490522ad974803b8fc4f4a031a2ef211443b3f3ee51cfd88f63ec92a0821",
+        "src/errors.py": "a6e6a90283d114f92dd560ccd51cec51885c94a3656d657403a2505f1f5b809c",
+        "src/evaluation.py": "f720ee73ac8f38a1342a103fb34cb71676488648907630058473e826f729ba97",
+        "src/experimental_models.py": "13ca51478fb38bb273f50d8be4702cb03e6219dbcde892211bc8c3b790f50334",
+        "src/fault_injection.py": "3c6fe7e0c9874146d85a65667eda4b6c4afa59a161db2c840198b5c1920236ee",
+        "src/fault_reporting.py": "1f7632ef7eaa699f3f8bb32b989b85714cabc73038eb04a94dfbd590c9cc318b",
+        "src/feature_sets.py": "ad9743a72accc1a4d94de79bbff0298aac143359ba52d9fc3459e03178c4b533",
+        "src/features.py": "a6ce9658957c62d206b0a6de69f6d551e5a50c1829425795a22cdbacea012fd0",
+        "src/loafo.py": "e180657cd7b88dbb7b455c531dbd099796e6fb92d47ad5388041cde0bcf9d65f",
+        "src/low_load.py": "6d0be6f9deab1398ea799c5ee96eb2b2b793a9bf3d96768fb91144694bc06341",
+        "src/low_load_reporting.py": "8e833849f01e9af70fa2fb554d03e37503d117457814e10d7b1afc188bc7a006",
+        "src/models.py": "54a4f91483f642ed86e567ac29c66ab5f71e49c1b25780f0126926f9185e8762",
+        "src/persistence.py": "961e72e50c472c52e0e65ffad9a9c68d0a94b5056f3462f94738b5f9e6f6cfc4",
+        "src/pilot_reporting.py": "31134ab5a63d7d176e89136119b18dac3f24dc11dfe9423ca4b12f32139cf92d",
+        "src/preprocessing.py": "f29b8be8a145495832fd96949db712e00e995c297ebc59809c1109e904b200cf",
+        "src/provenance.py": "a0828ad32098807d8df1a7539e537aa0c01e3936e7a5dcc049ac46f1571b39b7",
+        "src/replay.py": "b978e91b645f9da320951ae0afeecb2577ecc06fa73eaa363a238a6718dd04ae",
+        "src/replay_experiment.py": "92aed41a7dd67fd7f275d4acd5f4e4519cc4c72de845b5cc4577ddb043761b73",
+        "src/replay_reporting.py": "22785a1cbc3c1fc70658f3c7f6e5882411510c743922362b4869b69fae680d4a",
+        "src/reporting.py": "8764edd2fd6721534d163478f739a13bec8a177eb87d0bd87e129143d45a2027",
+        "src/research.py": "0c8a8a75704b88f433e2f4869360165e0741dbc9f9f3f916835b69432e30e496",
+        "src/research_reporting.py": "8231fcfc551be0c1d42fc053df98b7dfab9c0a28c769766276764e1b310f8395",
+        "src/research_sources.py": "e55418251e394020fcb38c94e6bce7dae38090e094e0adda5637fa0a58e9d1a0",
+        "src/residual_diagnostics.py": "8a3252819a085d26aec70ca29b850df2f4b4300b6cd5eb5e44f60ae6a7ba4d8f",
+        "src/single_path_tuning.py": "82dec110aab4e0d83fb2e02a95ebfdeeb6d340e46d35a2111bb19fdf3e38c0a9",
+        "src/tuning.py": "f82dc259236d85f2511440ebe6167402484ab96c1abc28e35e0dccab3100c1d5",
+        "src/tuning_reporting.py": "d4f29a3df54811a2f9107600e1bbe0f372e79d2d71a7486c7823a1e580e1a0f5"
+      }
+    },
+    "sources": [
+      {
+        "command": "preprocess",
+        "run_id": "e22890aeb6ffddf6",
+        "output_directory": "C:\\Skripsi2\\HGB V2\\artifacts\\preprocessing\\e22890aeb6ffddf6",
+        "manifest_sha256": "3e929e255ed5223946262bb2f82439fe7378c685167afbc9f6772e0bbc34706b",
+        "summary_sha256": "b1b3bf07b7bd74a9b6702cdd7c64dcf7aa1eea3f41bb27fee1dcf11a0af87617",
+        "verified_files": 14,
+        "pre_outer_frozen_files": 0,
+        "model_bundles": 0
+      },
+      {
+        "command": "features",
+        "run_id": "1225e8a76a8ce014",
+        "output_directory": "C:\\Skripsi2\\HGB V2\\artifacts\\features\\1225e8a76a8ce014",
+        "manifest_sha256": "c102814929b097f9fa3e2f993bedf2348471fcd625d524a8aee2fd7c6ca02f85",
+        "summary_sha256": "6a5c1c6763e1e03711126278f97cdb709a5de1520cc5d7cf72b4838580a7d3a1",
+        "verified_files": 7,
+        "pre_outer_frozen_files": 0,
+        "model_bundles": 0
+      },
+      {
+        "command": "baseline",
+        "run_id": "fcb19424861476bd",
+        "output_directory": "C:\\Skripsi2\\HGB V2\\artifacts\\baseline\\fcb19424861476bd",
+        "manifest_sha256": "2df21a0f7e99092f9422a6f8fe616df64fe147c271a196e39af3fa7061cd187a",
+        "summary_sha256": "ba118a13d133d25c01fabebd55016042561112a74c4a5419adc88bbd153b406c",
+        "verified_files": 14,
+        "pre_outer_frozen_files": 0,
+        "model_bundles": 1
+      },
+      {
+        "command": "inject-faults",
+        "run_id": "437104037cb0fea5",
+        "output_directory": "C:\\Skripsi2\\HGB V2\\artifacts\\fault_injection\\437104037cb0fea5",
+        "manifest_sha256": "a480ee9f11a4f58d7f466a085d537070e46245070d26604d31413001abef0422",
+        "summary_sha256": "5685f1340dff484b2c8a34074db31c1aa5ab9c091b407f4f31e5a85f8ec24205",
+        "verified_files": 270,
+        "pre_outer_frozen_files": 0,
+        "model_bundles": 0
+      },
+      {
+        "command": "cross-validate",
+        "run_id": "4bc978e2773687d3",
+        "output_directory": "C:\\Skripsi2\\HGB V2\\artifacts\\cross_validation\\4bc978e2773687d3",
+        "manifest_sha256": "03bcd9e3520d7fcd47930e27c92c253f39c683dfcbf2699447c0b4b79058e213",
+        "summary_sha256": "cb72066cc78b7f8e00ff37d3779ad596fe4a5c05d85fac0a9fa2dfcc76df1edd",
+        "verified_files": 217,
+        "pre_outer_frozen_files": 18,
+        "model_bundles": 6
+      },
+      {
+        "command": "ablation",
+        "run_id": "9ae785a0f10298bc",
+        "output_directory": "C:\\Skripsi2\\HGB V2\\artifacts\\ablation\\9ae785a0f10298bc",
+        "manifest_sha256": "1c0ec20f230a9f05640014d9b3a74511f220ebf22f8dbe16f056671699f3650e",
+        "summary_sha256": "e541e7e7dc78b322195bb90bdd9e93196a220e5353ba0e101d974cf166e46b02",
+        "verified_files": 1997,
+        "pre_outer_frozen_files": 180,
+        "model_bundles": 60
+      },
+      {
+        "command": "compare-models",
+        "run_id": "03ebe58933705e3e",
+        "output_directory": "C:\\Skripsi2\\HGB V2\\artifacts\\model_comparison\\03ebe58933705e3e",
+        "manifest_sha256": "7ba73e95b76ca7c04419e1d68cb13866aa9bce4468aaad644f3fc824d48ffdaf",
+        "summary_sha256": "0826c1c32209b9ee04eaffc5131f3e13d11a3e665c132d951d932f35b942fec7",
+        "verified_files": 809,
+        "pre_outer_frozen_files": 72,
+        "model_bundles": 24
+      },
+      {
+        "command": "tune",
+        "run_id": "d4351f20af42a44c",
+        "output_directory": "C:\\Skripsi2\\HGB V2\\artifacts\\tuning\\d4351f20af42a44c",
+        "manifest_sha256": "ac7fd52433d264aee3357bad58fb8d135015139a0ad19b69a51d5b8bcc5edf0c",
+        "summary_sha256": "533745767f87f0bfcac4eac3a2bad60c8fcdd7835f667d087752fde4d729af0b",
+        "verified_files": 554,
+        "pre_outer_frozen_files": 206,
+        "model_bundles": 6
+      },
+      {
+        "command": "tune-dual-path",
+        "run_id": "ad82c3e229bf6510",
+        "output_directory": "C:\\Skripsi2\\HGB V2\\artifacts\\dual_path\\ad82c3e229bf6510",
+        "manifest_sha256": "3e4dbd385ed538766d39c8f77a64d4c929a8e1c80438bdae8cb14fef36c02a15",
+        "summary_sha256": "e70960f60f953600f65a8e6e52b1a9d2e214714bd842287b46a88113161675b4",
+        "verified_files": 566,
+        "pre_outer_frozen_files": 215,
+        "model_bundles": 6
+      },
+      {
+        "command": "evaluate-low-load",
+        "run_id": "56b20c4b7936b122",
+        "output_directory": "C:\\Skripsi2\\HGB V2\\artifacts\\low_load\\56b20c4b7936b122",
+        "manifest_sha256": "1751a05774c068b4a66f7352c04f201ed536d90c808c2d266fdff32f204803f7",
+        "summary_sha256": "d8fabc06880805ec1276469dee86a09b4099f345af659f3076ff6eb18ed479e2",
+        "verified_files": 84,
+        "pre_outer_frozen_files": 0,
+        "model_bundles": 0
+      }
+    ]
+  },
+  "outputs": {
+    "ablation_overview.csv": "b7243812a47dbb86ac289538f20d7628c29b00187a23a969563c5502c4e15b3f",
+    "baseline/healthy_active_per_fold.csv": "075a4d725cc627c4f7ce940289e7ace0f3b291f10932422549817aeb8603d7b2",
+    "baseline/regression_per_fold.csv": "152118e2f8d597c8ed884be066d387d732a6dc04ff3c31ac31a9715630cb2276",
+    "config_used.yaml": "6ba44bcae775eacad4beeae687cfa5a4f47cb0d9f63cdcecab6285438a435074",
+    "dataset/battery_activity.csv": "09e0a62d5427ef5f32e90e04a35da48cbf328970f735f10e754857c5259ffc8b",
+    "dataset/flight_inventory.csv": "d00e27064724a1383759212c395c0595b46c6bb730bef6a961b59a3cbc2ed897",
+    "dataset/reference_coverage.csv": "b47779089ec9fbe4135bfbe0a82ef3d5e73f8a8b0305cc62d8549f236c716190",
+    "dataset/time_gap_summary.csv": "9c843cfe93786f6e7789d4c7e6290bf5cdad1bedcb9d32c00f620605f31caf06",
+    "dependency_versions.json": "886de9b3f6ff240b132ffffc00482ae059e34cf5b6ee9155bf4d4154b34890ea",
+    "execution_trace.csv": "4a4b29e28605ed8c32558ca289230932f5830cb73e7a9056d65ace32e34c3b3d",
+    "failed_or_not_applicable_cases.csv": "0794d13017f5c83f5a9f437b9b76b3fe1d01154c16c13f3a441fd379bbdaf32f",
+    "feature_registry.json": "e0748d7494da15744e634b94bab1a1df1c149ecb34fb0c92a34cf9827b23c34e",
+    "gate_checks.csv": "e5011970cb42524af92e23e7b3ca40ff75914a7f215e4a64634fecd45720125a",
+    "input_audit.json": "e2cb7a8b25b82e72928eede0d1ffb90d52a2955e72ed5daf506edb7a68a45ff7",
+    "low_load/per_model_flight.csv": "50a9412be1709fec63c7e2e412de13f9e110b35ac4ea61e539357a7485796b04",
+    "low_load/per_model_summary.csv": "40b9fa4bc97f444f178696dc063564c5d7d632f1bde32ed126d74a3ef2f52c26",
+    "model_bundle_registry.csv": "85e2d1b7f2d189a487c3f5d43433b8365a74c32ce9a56c5f3defe8f6ca73a166",
+    "model_comparison_overview.csv": "f1082df55b1633f100e7ae79e9fa090155c4ea1a5d11706a78077bf4af05d778",
+    "orchestration_plan.json": "f579fec924e7f585abbe89dc01c9ad8ca147540ad7cf48b47a300c64aace7e34",
+    "plots/baseline_observability.png": "35bf0ea66ac1ef027df0214eb147c9d74c7b7dd1dd3e65bb8732ebe54fa536d1",
+    "plots/feature_ablation.png": "8a8ce5c2a4d538c689b98cb149bfc8c9ccd79e97b1c559b7bce62e2fe99041c5",
+    "plots/low_load_sensitivity.png": "9b743d3081a47bb29d5ce178a526fe3ebc89442cf9cc762ca72cf5ecc3af12ae",
+    "plots/model_comparison.png": "3e507f26b5880f02bf340e9bfcf78af47f6d840137a21035ef7fa2c052a9e5c9",
+    "plots/paired_dual_deadlines.png": "450a06e24e1cc6ab5edc000f277ddeecb0e8f4d6eaab5cd112ddb209528e93a2",
+    "research_report.md": "8149d4199d8fc5cbb49f51d76aabd76c01429d477a22a30824a1942d27b88103",
+    "results.json": "8bc0ba5134ea0a3d6ffedc19f88e37428085d20dd5f26c616d82cb8e9fb4c24d",
+    "selection/dual_path_selected_per_fold.json": "75fa01bf7a3c12b523182e053bfd92acc3f84d7332715e580d5fe0a4acc3213f",
+    "selection/promotion_decision.json": "90d20a49e6b32a83b9ad4b170596252120fa0b2ca98cc49e67cfc0cf2df55ee2",
+    "selection/single_path_selected_per_fold.json": "f74f18f6f40c9a39b28dd859df61d9249171aaf3ad271f4562e792288286112a",
+    "source_inventory.csv": "24d9847cedb23165ce2cc265cd0ec5b581134db3bd5b74ded5309308b5c5efd0",
+    "source_inventory.json": "d39f8b507bb196363b8bb26396a045480bfac7827613a1c0e3896c6a35879414",
+    "source_results_frozen.json": "ea9a59ae116bf43d88c99b130c6441c49bb6eb323cbe311f5ae40d325344f9d2",
+    "summary.json": "06204f61f3b618cd64b00d6f5ce4a3a285b730e9392242b20e3062e18d265754",
+    "synthetic/fault_applicability.csv": "6adabb40efd7c8a405174503586e8b1289de17e4d701d10ff7d99aced5fba46b",
+    "synthetic/fault_observability.csv": "5988e07535d2436f626d8dd36fa102a096a1b53d21accc22f80665f62a860cac",
+    "synthetic_group_metrics.csv": "0e18d304f9cf5e38fd3a5e9ded93aa6ee53188a5d4811a8afb94214c1550cfbb",
+    "synthetic_series.csv": "d6dceea18639414d361c2267e0cdf1d205f1fb906061b907e38514138200e291"
+  }
+}

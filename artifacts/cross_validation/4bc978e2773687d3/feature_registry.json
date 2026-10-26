@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "operational_set": "battery_d",
+  "regression_sets": {
+    "battery_a": [
+      "Curr"
+    ],
+    "battery_b": [
+      "Curr",
+      "CurrTot"
+    ],
+    "battery_c": [
+      "Curr",
+      "CurrTot",
+      "dI_dt"
+    ],
+    "battery_d": [
+      "Curr",
+      "CurrTot",
+      "dI_dt",
+      "Curr_roll_mean_0p5s",
+      "Curr_roll_std_0p5s",
+      "Curr_roll_mean_1p0s",
+      "Curr_roll_std_1p0s"
+    ],
+    "battery_e": [
+      "Curr",
+      "CurrTot",
+      "dI_dt",
+      "Curr_roll_mean_0p5s",
+      "Curr_roll_std_0p5s",
+      "Curr_roll_mean_1p0s",
+      "Curr_roll_std_1p0s",
+      "elapsed_time"
+    ]
+  },
+  "ablation_only_sets": [
+    "battery_e"
+  ],
+  "direct_baseline_predictors": [
+    "voltage_sag_actual",
+    "Curr",
+    "CurrTot",
+    "dV_dt",
+    "dI_dt"
+  ],
+  "target": "voltage_sag_actual",
+  "target_unit": "V",
+  "target_definition": "V_ref - Volt",
+  "units": {
+    "Curr": "A",
+    "CurrTot": "unverified_source_units",
+    "dI_dt": "A/s",
+    "dV_dt": "V/s",
+    "elapsed_time": "s"
+  },
+  "currtot_policy": "No conversion; review any reported decrease before Battery-B–E fitting.",
+  "excluded_from_regression": [
+    "Volt",
+    "V_ref",
+    "voltage_sag_actual",
+    "dV_dt",
+    "residual",
+    "anomaly_score",
+    "Volt_x_Curr",
+    "NamaFile",
+    "Inst",
+    "TimeUS",
+    "dt_seconds",
+    "segment_id",
+    "source_record",
+    "readiness",
+    "reference_ready",
+    "reference_status",
+    "derivative_ready",
+    "rolling count/coverage/readiness",
+    "offline activity/flight labels"
+  ],
+  "elapsed_time_policy": "Seconds since first accepted stream sample; Battery-E ablation only.",
+  "rolling": [
+    {
+      "window_seconds": 0.5,
+      "interval": "(t-window, t]",
+      "ddof": 0,
+      "mean_column": "Curr_roll_mean_0p5s",
+      "std_column": "Curr_roll_std_0p5s",
+      "unit": "A",
+      "count_column": "Curr_roll_count_0p5s",
+      "coverage_column": "Curr_roll_coverage_0p5s",
+      "ready_column": "Curr_roll_ready_0p5s"
+    },
+    {
+      "window_seconds": 1.0,
+      "interval": "(t-window, t]",
+      "ddof": 0,
+      "mean_column": "Curr_roll_mean_1p0s",
+      "std_column": "Curr_roll_std_1p0s",
+      "unit": "A",
+      "count_column": "Curr_roll_count_1p0s",
+      "coverage_column": "Curr_roll_coverage_1p0s",
+      "ready_column": "Curr_roll_ready_1p0s"
+    }
+  ],
+  "coverage_policy": "min(segment elapsed / window, 1); flags and counts are diagnostics, never automatic predictors."
+}

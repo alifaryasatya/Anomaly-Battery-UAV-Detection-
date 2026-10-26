@@ -1,0 +1,24 @@
+{
+  "status": "FROZEN_BEFORE_OUTER_EVALUATION",
+  "fold_count": 6,
+  "files": {
+    "folds/fold_00/selected_policy.json": "85a7f2ad6d1b3de1c385408f75d09bd548719d59e322bc976a5e6bad502aa850",
+    "folds/fold_00/threshold.json": "dfa45485660d42eea243dc986130af231922519cfdd11f207b03a9bf3ddb5f11",
+    "folds/fold_00/model_bundle.joblib": "445c4e2dda45111615c8ac8d2736849763960cef4f5df72e4c3f6ab7a088ed56",
+    "folds/fold_01/selected_policy.json": "56e9c73b02ae0d1d46570cbc85a17caf21af52f166e8a8dd61f2f8c8ef337460",
+    "folds/fold_01/threshold.json": "6df1a85405963a43db38f78e6258c7c82182ec2b86e493cae5245983082a1231",
+    "folds/fold_01/model_bundle.joblib": "8dd141c6c329fc30de5e354fe2cb5eff629c66ad61824b3e519c666040a294ef",
+    "folds/fold_02/selected_policy.json": "24a6c3ffa8ff2c33d4be92359080b0ea39bf4bb34a790c217a668bf80e350e95",
+    "folds/fold_02/threshold.json": "52096c327b9ab85de2b3d03ad1363724fecc12fcde09ae0c4ea3903a952c1f80",
+    "folds/fold_02/model_bundle.joblib": "d288781d143548cdd6c5468e01e7da01f2461081f080be4989ce952b4383f313",
+    "folds/fold_03/selected_policy.json": "76966b7fd7a7cbf847119b1e98bac993311067cfd6f84a89578f1160147eb2a4",
+    "folds/fold_03/threshold.json": "08dcf12ecbab4707dc2ea3d895a7d35e44387d930a9362492b549b27342bb78a",
+    "folds/fold_03/model_bundle.joblib": "2d69c7e7a30738b1bd0f83960c0aed9c318afb535e39a700c74c26766397f94f",
+    "folds/fold_04/selected_policy.json": "569cf1db26e369969febfd06d807bf2f18fb4d6e40f0e7b97f89c9b81deb6600",
+    "folds/fold_04/threshold.json": "d098eabc821c3d09a9efa8da5880d8997ae810b563cf4a6aabdf9a212a3000a8",
+    "folds/fold_04/model_bundle.joblib": "609acb1a7b18412f898a9b3c2080c2d137e811ead8fcdbe4e8e843d39ff02d8d",
+    "folds/fold_05/selected_policy.json": "5c9a76b8115d835f9cb7e2e08428e6eac9ca876e7d61bb66cd91f2c056a62e3f",
+    "folds/fold_05/threshold.json": "4fd9d5d749493fa5116fa0ad75c2a3ca5da1eab0cf9e89c0785af98d228e9707",
+    "folds/fold_05/model_bundle.joblib": "20783d193b12a92c896a867a15ff870d0010e0231c14843ff6d0ad7535e6b8ec"
+  }
+}

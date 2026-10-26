@@ -1,0 +1,395 @@
+{
+  "run_summary": {
+    "status": "OK",
+    "command": "cross-validate",
+    "run_id": "4bc978e2773687d3",
+    "output_directory": "C:\\Skripsi2\\HGB V2\\artifacts\\cross_validation\\4bc978e2773687d3",
+    "evaluation_scope": "historical_development_cross_validation",
+    "folds": 6,
+    "active_flights": [
+      "00000066.BIN",
+      "00000069.BIN",
+      "00000070.BIN",
+      "00000071.BIN",
+      "00000073.BIN",
+      "00000074.BIN"
+    ],
+    "feature_run_id": "1225e8a76a8ce014",
+    "data_sha256": "bc83a9a1bde9dc2412c1ce80429a336bead23df4daf97c12f3cb8ed554019368",
+    "feature_manifest_sha256": "c102814929b097f9fa3e2f993bedf2348471fcd625d524a8aee2fd7c6ca02f85",
+    "random_seed": 42,
+    "model_training_performed": true,
+    "threshold_policy": "healthy-validation P99 per fold",
+    "persistence_seconds": 0.5,
+    "all_policies_frozen_before_outer": true,
+    "outer_test_evaluated": true,
+    "regression_pooled": {
+      "samples": 26870,
+      "mae_v": 0.10186462499372256,
+      "rmse_v": 0.1382784222106523,
+      "r2": 0.9464807506911281
+    },
+    "healthy_active_pooled": {
+      "ready_samples": 26870,
+      "raw_alarm_samples": 3607,
+      "confirmed_alarm_samples": 3178,
+      "raw_fpr": 0.1342389281726833,
+      "confirmed_fpr": 0.11827316710085597,
+      "confirmed_episodes": 29,
+      "observed_ready_seconds": 2683.400543,
+      "confirmed_episodes_per_minute": 0.6484309636662393
+    },
+    "synthetic_pooled": {
+      "scenarios": 162,
+      "applicable_scenarios": 162,
+      "not_applicable_scenarios": 0,
+      "detected_scenarios": 156,
+      "undetected_scenarios": 6,
+      "preexisting_alarm_scenarios": 0,
+      "undetected_without_preexisting": 6,
+      "incident_recall": 0.9629629629629629,
+      "tp": 66440,
+      "fp": 85257,
+      "tn": 557877,
+      "fn": 15916,
+      "precision": 0.4379783383982544,
+      "recall": 0.8067414638884841,
+      "f1": 0.5677346583893391,
+      "synthetic_sample_fpr": 0.13256490871264776,
+      "delay_detected_n": 156,
+      "delay_mean_seconds": 5.526932442307692,
+      "delay_median_seconds": 0.699965,
+      "delay_std_seconds": 10.035912646362517,
+      "pre_fault_samples": 286635,
+      "pre_fault_confirmed_alarm_samples": 6075,
+      "pre_fault_fpr": 0.02119420168506986,
+      "deadline_le_1s_successes": 101,
+      "deadline_le_1s_rate": 0.6234567901234568,
+      "deadline_le_2s_successes": 102,
+      "deadline_le_2s_rate": 0.6296296296296297,
+      "deadline_le_5s_successes": 115,
+      "deadline_le_5s_rate": 0.7098765432098766,
+      "deadline_le_10s_successes": 129,
+      "deadline_le_10s_rate": 0.7962962962962963,
+      "deadline_le_30s_successes": 149,
+      "deadline_le_30s_rate": 0.9197530864197531
+    },
+    "research_target_checks": {
+      "abrupt_severe": {
+        "rate": 1.0,
+        "target": 0.8,
+        "applicable": 36,
+        "status": "MET"
+      },
+      "gradual_observable": {
+        "rate": 0.23529411764705882,
+        "target": 0.7,
+        "applicable": 51,
+        "status": "NOT_MET"
+      }
+    },
+    "low_load_evaluated": false,
+    "currtot_unit": "unverified",
+    "deployment_status": "RESEARCH_BASELINE_ONLY",
+    "operational_gate_status": "NOT_ASSESSED_FULL_PROTOCOL_PENDING"
+  },
+  "pooled": {
+    "regression": {
+      "samples": 26870,
+      "mae_v": 0.10186462499372256,
+      "rmse_v": 0.1382784222106523,
+      "r2": 0.9464807506911281
+    },
+    "healthy_active": {
+      "ready_samples": 26870,
+      "raw_alarm_samples": 3607,
+      "confirmed_alarm_samples": 3178,
+      "raw_fpr": 0.1342389281726833,
+      "confirmed_fpr": 0.11827316710085597,
+      "confirmed_episodes": 29,
+      "observed_ready_seconds": 2683.400543,
+      "confirmed_episodes_per_minute": 0.6484309636662393
+    },
+    "synthetic": {
+      "scenarios": 162,
+      "applicable_scenarios": 162,
+      "not_applicable_scenarios": 0,
+      "detected_scenarios": 156,
+      "undetected_scenarios": 6,
+      "preexisting_alarm_scenarios": 0,
+      "undetected_without_preexisting": 6,
+      "incident_recall": 0.9629629629629629,
+      "tp": 66440,
+      "fp": 85257,
+      "tn": 557877,
+      "fn": 15916,
+      "precision": 0.4379783383982544,
+      "recall": 0.8067414638884841,
+      "f1": 0.5677346583893391,
+      "synthetic_sample_fpr": 0.13256490871264776,
+      "delay_detected_n": 156,
+      "delay_mean_seconds": 5.526932442307692,
+      "delay_median_seconds": 0.699965,
+      "delay_std_seconds": 10.035912646362517,
+      "pre_fault_samples": 286635,
+      "pre_fault_confirmed_alarm_samples": 6075,
+      "pre_fault_fpr": 0.02119420168506986,
+      "deadline_le_1s_successes": 101,
+      "deadline_le_1s_rate": 0.6234567901234568,
+      "deadline_le_2s_successes": 102,
+      "deadline_le_2s_rate": 0.6296296296296297,
+      "deadline_le_5s_successes": 115,
+      "deadline_le_5s_rate": 0.7098765432098766,
+      "deadline_le_10s_successes": 129,
+      "deadline_le_10s_rate": 0.7962962962962963,
+      "deadline_le_30s_successes": 149,
+      "deadline_le_30s_rate": 0.9197530864197531
+    }
+  },
+  "macro_per_fold": {
+    "regression": {
+      "mae_v": {
+        "n_defined": 6,
+        "mean": 0.08570538735728528,
+        "std": 0.0298906769837687,
+        "median": 0.09417092704982433,
+        "min": 0.02336179496675663,
+        "max": 0.11259978814835248
+      },
+      "rmse_v": {
+        "n_defined": 6,
+        "mean": 0.11255362517950519,
+        "std": 0.0402567639639463,
+        "median": 0.12535280487830025,
+        "min": 0.031523974828049896,
+        "max": 0.14969838278686015
+      },
+      "r2": {
+        "n_defined": 6,
+        "mean": 0.8735849662802364,
+        "std": 0.08228936708649508,
+        "median": 0.8911153922594777,
+        "min": 0.7517229677012118,
+        "max": 0.9805053188740888
+      }
+    },
+    "healthy_active": {
+      "raw_fpr": {
+        "n_defined": 6,
+        "mean": 0.06939778104846152,
+        "std": 0.1319161847896097,
+        "median": 0.006233285729508833,
+        "min": 0.0,
+        "max": 0.3626130864717021
+      },
+      "confirmed_fpr": {
+        "n_defined": 6,
+        "mean": 0.05640413251567946,
+        "std": 0.12382796129902947,
+        "median": 0.00011470520761642578,
+        "min": 0.0,
+        "max": 0.33326320218809175
+      },
+      "confirmed_episodes_per_minute": {
+        "n_defined": 6,
+        "mean": 0.40888443900526267,
+        "std": 0.6126384952353471,
+        "median": 0.03445103080527344,
+        "min": 0.0,
+        "max": 1.6436634613097327
+      }
+    },
+    "synthetic": {
+      "precision": {
+        "n_defined": 6,
+        "mean": 0.8639169162241424,
+        "std": 0.3009785920605194,
+        "median": 0.9984562607204117,
+        "min": 0.19091902161006888,
+        "max": 1.0
+      },
+      "recall": {
+        "n_defined": 6,
+        "mean": 0.8265202660382023,
+        "std": 0.09449027581202847,
+        "median": 0.8778380941613908,
+        "min": 0.6392156862745098,
+        "max": 0.9052287581699346
+      },
+      "f1": {
+        "n_defined": 6,
+        "mean": 0.796939892172484,
+        "std": 0.22345379509880736,
+        "median": 0.9006156492503237,
+        "min": 0.31431207581396803,
+        "max": 0.9502572898799314
+      },
+      "synthetic_sample_fpr": {
+        "n_defined": 6,
+        "mean": 0.06082901502692618,
+        "std": 0.13555118185897497,
+        "median": 0.00012313754463735992,
+        "min": 0.0,
+        "max": 0.3639300134589502
+      },
+      "incident_recall": {
+        "n_defined": 6,
+        "mean": 0.962962962962963,
+        "std": 0.08281733249999221,
+        "median": 1.0,
+        "min": 0.7777777777777778,
+        "max": 1.0
+      },
+      "pre_fault_fpr": {
+        "n_defined": 6,
+        "mean": 0.00949475831944831,
+        "std": 0.02084203542100058,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.05609348914858097
+      },
+      "delay_mean_seconds": {
+        "n_defined": 6,
+        "mean": 5.656974364197531,
+        "std": 3.272045985073322,
+        "median": 5.707444833333333,
+        "min": 1.9888607037037036,
+        "max": 9.038064333333333
+      },
+      "delay_median_seconds": {
+        "n_defined": 6,
+        "mean": 0.7000575,
+        "std": 0.08160139578207798,
+        "median": 0.699921,
+        "min": 0.600039,
+        "max": 0.800144
+      },
+      "deadline_le_1s_rate": {
+        "n_defined": 6,
+        "mean": 0.6234567901234568,
+        "std": 0.0690144437499935,
+        "median": 0.6666666666666666,
+        "min": 0.48148148148148145,
+        "max": 0.6666666666666666
+      },
+      "deadline_le_2s_rate": {
+        "n_defined": 6,
+        "mean": 0.6296296296296295,
+        "std": 0.05657500857970173,
+        "median": 0.6666666666666666,
+        "min": 0.5185185185185185,
+        "max": 0.6666666666666666
+      },
+      "deadline_le_5s_rate": {
+        "n_defined": 6,
+        "mean": 0.7098765432098766,
+        "std": 0.11196516757541392,
+        "median": 0.7222222222222222,
+        "min": 0.5555555555555556,
+        "max": 0.8518518518518519
+      },
+      "deadline_le_10s_rate": {
+        "n_defined": 6,
+        "mean": 0.7962962962962963,
+        "std": 0.17338977660726096,
+        "median": 0.8148148148148149,
+        "min": 0.5555555555555556,
+        "max": 1.0
+      },
+      "deadline_le_30s_rate": {
+        "n_defined": 6,
+        "mean": 0.9197530864197531,
+        "std": 0.11793193317619013,
+        "median": 0.962962962962963,
+        "min": 0.6666666666666666,
+        "max": 1.0
+      }
+    }
+  },
+  "target_groups": {
+    "abrupt_severe": {
+      "scenarios": 36,
+      "applicable_scenarios": 36,
+      "not_applicable_scenarios": 0,
+      "detected_scenarios": 36,
+      "undetected_scenarios": 0,
+      "preexisting_alarm_scenarios": 0,
+      "undetected_without_preexisting": 0,
+      "incident_recall": 1.0,
+      "tp": 19493,
+      "fp": 18933,
+      "tn": 122522,
+      "fn": 272,
+      "precision": 0.5072867329412377,
+      "recall": 0.9862383000252972,
+      "f1": 0.6699661459675895,
+      "synthetic_sample_fpr": 0.1338446855890566,
+      "delay_detected_n": 36,
+      "delay_mean_seconds": 0.6055561388888889,
+      "delay_median_seconds": 0.5999954999999999,
+      "delay_std_seconds": 0.08797728256176665,
+      "pre_fault_samples": 67517,
+      "pre_fault_confirmed_alarm_samples": 1350,
+      "pre_fault_fpr": 0.019994964231230653,
+      "deadline_le_1s_successes": 36,
+      "deadline_le_1s_rate": 1.0,
+      "deadline_le_2s_successes": 36,
+      "deadline_le_2s_rate": 1.0,
+      "deadline_le_5s_successes": 36,
+      "deadline_le_5s_rate": 1.0,
+      "deadline_le_10s_successes": 36,
+      "deadline_le_10s_rate": 1.0,
+      "deadline_le_30s_successes": 36,
+      "deadline_le_30s_rate": 1.0
+    },
+    "gradual_observable": {
+      "scenarios": 51,
+      "applicable_scenarios": 51,
+      "not_applicable_scenarios": 0,
+      "detected_scenarios": 48,
+      "undetected_scenarios": 3,
+      "preexisting_alarm_scenarios": 0,
+      "undetected_without_preexisting": 3,
+      "incident_recall": 0.9411764705882353,
+      "tp": 11642,
+      "fp": 28452,
+      "tn": 165597,
+      "fn": 9985,
+      "precision": 0.2903676360552701,
+      "recall": 0.5383085957368104,
+      "f1": 0.3772459940700896,
+      "synthetic_sample_fpr": 0.1466227602306634,
+      "delay_detected_n": 48,
+      "delay_mean_seconds": 14.014619083333333,
+      "delay_median_seconds": 9.6500035,
+      "delay_std_seconds": 12.308280084335474,
+      "pre_fault_samples": 80382,
+      "pre_fault_confirmed_alarm_samples": 2025,
+      "pre_fault_fpr": 0.025192207210569532,
+      "deadline_le_1s_successes": 0,
+      "deadline_le_1s_rate": 0.0,
+      "deadline_le_2s_successes": 0,
+      "deadline_le_2s_rate": 0.0,
+      "deadline_le_5s_successes": 12,
+      "deadline_le_5s_rate": 0.23529411764705882,
+      "deadline_le_10s_successes": 25,
+      "deadline_le_10s_rate": 0.49019607843137253,
+      "deadline_le_30s_successes": 43,
+      "deadline_le_30s_rate": 0.8431372549019608
+    }
+  },
+  "research_target_checks": {
+    "abrupt_severe": {
+      "rate": 1.0,
+      "target": 0.8,
+      "applicable": 36,
+      "status": "MET"
+    },
+    "gradual_observable": {
+      "rate": 0.23529411764705882,
+      "target": 0.7,
+      "applicable": 51,
+      "status": "NOT_MET"
+    }
+  }
+}

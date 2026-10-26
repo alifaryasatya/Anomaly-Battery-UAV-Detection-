@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "report_relative_links_valid": true,
+  "report_metrics_reconciled": true,
+  "source_preservation_files": 345,
+  "source_preservation_after_report": true,
+  "report_predictor_and_policy_scope": "original seven predictors / original models / original P99 / original 0.5s, no fit/tuning",
+  "comparison_roles_explicit": true,
+  "flight66_episodes": 26,
+  "flight66_confirmed": 3168,
+  "plots_visually_reviewed": 7,
+  "physical_fault_cause_not_established": true,
+  "healthy_assumed_label_preserved": true
+}

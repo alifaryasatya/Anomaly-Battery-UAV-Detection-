@@ -1,0 +1,12 @@
+check,status,detail
+audit_and_source_integrity,PASS,Frozen raw/config/protocol and all source output hashes verified
+feature_and_reference_lineage,PASS,"Same preprocessing/features, active flight assignments and reference baseline"
+validation_before_outer,PASS,All five outer experiments have verified immutable pre-outer freeze records
+recomputed_scenario_totals,PASS,19 experimental series reconcile to their source summaries
+low_load_unseen_and_exposure,PASS,Explicit source membership; unique cohort exposure retained separately per model
+dual_promotion,FAIL,NOT_PROMOTED
+independent_final_holdout,WARNING,Historical development data; no untouched final holdout
+currtot_units_and_healthy_labels,WARNING,CurrTot unverified; healthy assumed_from_source
+replay_and_hardware,NOT_EVALUATED,Sprint 12 replay and hardware readiness not established
+baseline_target_abrupt_severe,PASS,rate=1.0; target=0.8; applicable=36
+baseline_target_gradual_observable,FAIL,rate=0.23529411764705882; target=0.7; applicable=51

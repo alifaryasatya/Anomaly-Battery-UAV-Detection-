@@ -1,0 +1,146 @@
+{
+  "currtot_unit": "unverified",
+  "unit_conversion_applied": false,
+  "unit_basis": "TimeUS us, Volt V, Curr A follow supplied CSV contract; original logs absent",
+  "instance_policy": "reject_multiple_instances_without_explicit_selection",
+  "per_flight": [
+    {
+      "NamaFile": "00000061.BIN",
+      "input_samples": 421,
+      "retained_samples": 421,
+      "dropped_samples": 0,
+      "instances": "0",
+      "backward_timestamps_in_source_order": 0
+    },
+    {
+      "NamaFile": "00000062.BIN",
+      "input_samples": 486,
+      "retained_samples": 486,
+      "dropped_samples": 0,
+      "instances": "0",
+      "backward_timestamps_in_source_order": 0
+    },
+    {
+      "NamaFile": "00000063.BIN",
+      "input_samples": 353,
+      "retained_samples": 353,
+      "dropped_samples": 0,
+      "instances": "0",
+      "backward_timestamps_in_source_order": 0
+    },
+    {
+      "NamaFile": "00000064.BIN",
+      "input_samples": 1088,
+      "retained_samples": 1088,
+      "dropped_samples": 0,
+      "instances": "0",
+      "backward_timestamps_in_source_order": 0
+    },
+    {
+      "NamaFile": "00000065.BIN",
+      "input_samples": 146,
+      "retained_samples": 146,
+      "dropped_samples": 0,
+      "instances": "0",
+      "backward_timestamps_in_source_order": 0
+    },
+    {
+      "NamaFile": "00000066.BIN",
+      "input_samples": 9526,
+      "retained_samples": 9526,
+      "dropped_samples": 0,
+      "instances": "0",
+      "backward_timestamps_in_source_order": 0
+    },
+    {
+      "NamaFile": "00000067.BIN",
+      "input_samples": 144,
+      "retained_samples": 144,
+      "dropped_samples": 0,
+      "instances": "0",
+      "backward_timestamps_in_source_order": 0
+    },
+    {
+      "NamaFile": "00000068.BIN",
+      "input_samples": 588,
+      "retained_samples": 588,
+      "dropped_samples": 0,
+      "instances": "0",
+      "backward_timestamps_in_source_order": 0
+    },
+    {
+      "NamaFile": "00000069.BIN",
+      "input_samples": 1642,
+      "retained_samples": 1642,
+      "dropped_samples": 0,
+      "instances": "0",
+      "backward_timestamps_in_source_order": 0
+    },
+    {
+      "NamaFile": "00000070.BIN",
+      "input_samples": 1664,
+      "retained_samples": 1664,
+      "dropped_samples": 0,
+      "instances": "0",
+      "backward_timestamps_in_source_order": 0
+    },
+    {
+      "NamaFile": "00000071.BIN",
+      "input_samples": 1006,
+      "retained_samples": 1006,
+      "dropped_samples": 0,
+      "instances": "0",
+      "backward_timestamps_in_source_order": 0
+    },
+    {
+      "NamaFile": "00000072.BIN",
+      "input_samples": 369,
+      "retained_samples": 369,
+      "dropped_samples": 0,
+      "instances": "0",
+      "backward_timestamps_in_source_order": 0
+    },
+    {
+      "NamaFile": "00000073.BIN",
+      "input_samples": 8738,
+      "retained_samples": 8738,
+      "dropped_samples": 0,
+      "instances": "0",
+      "backward_timestamps_in_source_order": 0
+    },
+    {
+      "NamaFile": "00000074.BIN",
+      "input_samples": 4415,
+      "retained_samples": 4415,
+      "dropped_samples": 0,
+      "instances": "0",
+      "backward_timestamps_in_source_order": 0
+    },
+    {
+      "NamaFile": "00000075.BIN",
+      "input_samples": 328,
+      "retained_samples": 328,
+      "dropped_samples": 0,
+      "instances": "0",
+      "backward_timestamps_in_source_order": 0
+    },
+    {
+      "NamaFile": "00000076.BIN",
+      "input_samples": 739,
+      "retained_samples": 739,
+      "dropped_samples": 0,
+      "instances": "0",
+      "backward_timestamps_in_source_order": 0
+    },
+    {
+      "NamaFile": "00000077.BIN",
+      "input_samples": 685,
+      "retained_samples": 685,
+      "dropped_samples": 0,
+      "instances": "0",
+      "backward_timestamps_in_source_order": 0
+    }
+  ],
+  "event_counts": {},
+  "currtot_predictor_review_required": false
+}

@@ -1,0 +1,42 @@
+{
+  "preprocess": {
+    "run_id": "e22890aeb6ffddf6",
+    "manifest_sha256": "3e929e255ed5223946262bb2f82439fe7378c685167afbc9f6772e0bbc34706b"
+  },
+  "features": {
+    "run_id": "1225e8a76a8ce014",
+    "manifest_sha256": "c102814929b097f9fa3e2f993bedf2348471fcd625d524a8aee2fd7c6ca02f85"
+  },
+  "baseline": {
+    "run_id": "fcb19424861476bd",
+    "manifest_sha256": "2df21a0f7e99092f9422a6f8fe616df64fe147c271a196e39af3fa7061cd187a"
+  },
+  "inject-faults": {
+    "run_id": "437104037cb0fea5",
+    "manifest_sha256": "a480ee9f11a4f58d7f466a085d537070e46245070d26604d31413001abef0422"
+  },
+  "cross-validate": {
+    "run_id": "4bc978e2773687d3",
+    "manifest_sha256": "03bcd9e3520d7fcd47930e27c92c253f39c683dfcbf2699447c0b4b79058e213"
+  },
+  "ablation": {
+    "run_id": "9ae785a0f10298bc",
+    "manifest_sha256": "1c0ec20f230a9f05640014d9b3a74511f220ebf22f8dbe16f056671699f3650e"
+  },
+  "compare-models": {
+    "run_id": "03ebe58933705e3e",
+    "manifest_sha256": "7ba73e95b76ca7c04419e1d68cb13866aa9bce4468aaad644f3fc824d48ffdaf"
+  },
+  "tune": {
+    "run_id": "d4351f20af42a44c",
+    "manifest_sha256": "ac7fd52433d264aee3357bad58fb8d135015139a0ad19b69a51d5b8bcc5edf0c"
+  },
+  "tune-dual-path": {
+    "run_id": "ad82c3e229bf6510",
+    "manifest_sha256": "3e4dbd385ed538766d39c8f77a64d4c929a8e1c80438bdae8cb14fef36c02a15"
+  },
+  "evaluate-low-load": {
+    "run_id": "56b20c4b7936b122",
+    "manifest_sha256": "1751a05774c068b4a66f7352c04f201ed536d90c808c2d266fdff32f204803f7"
+  }
+}

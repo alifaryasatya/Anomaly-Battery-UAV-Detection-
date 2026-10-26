@@ -1,0 +1,70 @@
+{
+  "fold_id": "fold_01",
+  "split": {
+    "train": [
+      "00000066.BIN",
+      "00000071.BIN",
+      "00000073.BIN",
+      "00000074.BIN"
+    ],
+    "validation": [
+      "00000070.BIN"
+    ],
+    "test": [
+      "00000069.BIN"
+    ]
+  },
+  "threshold": {
+    "method": "healthy_validation_percentile",
+    "percentile": 99.0,
+    "quantile_method": "numpy.percentile_linear",
+    "threshold_v": 0.024280366896536124,
+    "source_role": "validation",
+    "source_flights": [
+      "00000070.BIN"
+    ],
+    "source_samples": 1643,
+    "source_sha256": "87ad2be2ffb4c8d6c0c301ffa2fc81f702d839e4a51fea2ebee7054026c7d0ba",
+    "healthy_status": "assumed_from_source",
+    "score_definition": "max(0, actual_voltage_sag - predicted_voltage_sag)",
+    "comparison": "score > threshold",
+    "persistence_seconds": 0.5,
+    "persistence_source": "frozen_reference_protocol_not_tuned"
+  },
+  "selected_before_outer": true,
+  "selection_scope": "healthy_validation_only_fixed_reference_policy",
+  "model_parameters": {
+    "categorical_features": "from_dtype",
+    "early_stopping": false,
+    "interaction_cst": null,
+    "l2_regularization": 0.1,
+    "learning_rate": 0.05,
+    "loss": "squared_error",
+    "max_bins": 255,
+    "max_depth": null,
+    "max_features": 1.0,
+    "max_iter": 200,
+    "max_leaf_nodes": 31,
+    "min_samples_leaf": 20,
+    "monotonic_cst": null,
+    "n_iter_no_change": 10,
+    "quantile": null,
+    "random_state": 42,
+    "scoring": "loss",
+    "tol": 1e-07,
+    "validation_fraction": 0.1,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "predictors": [
+    "Curr",
+    "CurrTot",
+    "dI_dt",
+    "Curr_roll_mean_0p5s",
+    "Curr_roll_std_0p5s",
+    "Curr_roll_mean_1p0s",
+    "Curr_roll_std_1p0s"
+  ],
+  "random_seed": 42,
+  "feature_manifest_sha256": "c102814929b097f9fa3e2f993bedf2348471fcd625d524a8aee2fd7c6ca02f85"
+}

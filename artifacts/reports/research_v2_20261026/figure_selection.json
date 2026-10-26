@@ -1,0 +1,185 @@
+{
+  "rule": "all flights and families; mild severity; position 0.5; no outcome filter",
+  "selections": [
+    {
+      "scenario_id": "9fa98dc9734e57bfb32d",
+      "flight": "00000066.BIN",
+      "family": "increased_resistance",
+      "severity": "mild",
+      "start_position": 0.5,
+      "outcome": "DETECTED",
+      "figure": "figures/timeline_00000066_increased_resistance.png",
+      "source": "folds/fold_00/scenario_scores/9fa98dc9734e57bfb32d.csv.gz"
+    },
+    {
+      "scenario_id": "45665324b1c0d35aa691",
+      "flight": "00000066.BIN",
+      "family": "progressive",
+      "severity": "mild",
+      "start_position": 0.5,
+      "outcome": "DETECTED",
+      "figure": "figures/timeline_00000066_progressive.png",
+      "source": "folds/fold_00/scenario_scores/45665324b1c0d35aa691.csv.gz"
+    },
+    {
+      "scenario_id": "9d773d859c76fd905967",
+      "flight": "00000066.BIN",
+      "family": "sudden_drop",
+      "severity": "mild",
+      "start_position": 0.5,
+      "outcome": "DETECTED",
+      "figure": "figures/timeline_00000066_sudden_drop.png",
+      "source": "folds/fold_00/scenario_scores/9d773d859c76fd905967.csv.gz"
+    },
+    {
+      "scenario_id": "45231abcad5d6fa3759e",
+      "flight": "00000069.BIN",
+      "family": "increased_resistance",
+      "severity": "mild",
+      "start_position": 0.5,
+      "outcome": "DETECTED",
+      "figure": "figures/timeline_00000069_increased_resistance.png",
+      "source": "folds/fold_01/scenario_scores/45231abcad5d6fa3759e.csv.gz"
+    },
+    {
+      "scenario_id": "7237e0c96997f16768cd",
+      "flight": "00000069.BIN",
+      "family": "progressive",
+      "severity": "mild",
+      "start_position": 0.5,
+      "outcome": "DETECTED",
+      "figure": "figures/timeline_00000069_progressive.png",
+      "source": "folds/fold_01/scenario_scores/7237e0c96997f16768cd.csv.gz"
+    },
+    {
+      "scenario_id": "38b81a9bddc9b3baa678",
+      "flight": "00000069.BIN",
+      "family": "sudden_drop",
+      "severity": "mild",
+      "start_position": 0.5,
+      "outcome": "DETECTED",
+      "figure": "figures/timeline_00000069_sudden_drop.png",
+      "source": "folds/fold_01/scenario_scores/38b81a9bddc9b3baa678.csv.gz"
+    },
+    {
+      "scenario_id": "1ca31716104a7ad65280",
+      "flight": "00000070.BIN",
+      "family": "increased_resistance",
+      "severity": "mild",
+      "start_position": 0.5,
+      "outcome": "DETECTED",
+      "figure": "figures/timeline_00000070_increased_resistance.png",
+      "source": "folds/fold_02/scenario_scores/1ca31716104a7ad65280.csv.gz"
+    },
+    {
+      "scenario_id": "6e8bb3fe8ffbd2ce6880",
+      "flight": "00000070.BIN",
+      "family": "progressive",
+      "severity": "mild",
+      "start_position": 0.5,
+      "outcome": "DETECTED",
+      "figure": "figures/timeline_00000070_progressive.png",
+      "source": "folds/fold_02/scenario_scores/6e8bb3fe8ffbd2ce6880.csv.gz"
+    },
+    {
+      "scenario_id": "563ce7cca32899dc8c3a",
+      "flight": "00000070.BIN",
+      "family": "sudden_drop",
+      "severity": "mild",
+      "start_position": 0.5,
+      "outcome": "DETECTED",
+      "figure": "figures/timeline_00000070_sudden_drop.png",
+      "source": "folds/fold_02/scenario_scores/563ce7cca32899dc8c3a.csv.gz"
+    },
+    {
+      "scenario_id": "e7708008e18000fbad3f",
+      "flight": "00000071.BIN",
+      "family": "increased_resistance",
+      "severity": "mild",
+      "start_position": 0.5,
+      "outcome": "DETECTED",
+      "figure": "figures/timeline_00000071_increased_resistance.png",
+      "source": "folds/fold_03/scenario_scores/e7708008e18000fbad3f.csv.gz"
+    },
+    {
+      "scenario_id": "3bf5b4096d8b357ad794",
+      "flight": "00000071.BIN",
+      "family": "progressive",
+      "severity": "mild",
+      "start_position": 0.5,
+      "outcome": "DETECTED",
+      "figure": "figures/timeline_00000071_progressive.png",
+      "source": "folds/fold_03/scenario_scores/3bf5b4096d8b357ad794.csv.gz"
+    },
+    {
+      "scenario_id": "75b20eb7d9b3c05c532a",
+      "flight": "00000071.BIN",
+      "family": "sudden_drop",
+      "severity": "mild",
+      "start_position": 0.5,
+      "outcome": "DETECTED",
+      "figure": "figures/timeline_00000071_sudden_drop.png",
+      "source": "folds/fold_03/scenario_scores/75b20eb7d9b3c05c532a.csv.gz"
+    },
+    {
+      "scenario_id": "1b907b65da15310103f8",
+      "flight": "00000073.BIN",
+      "family": "increased_resistance",
+      "severity": "mild",
+      "start_position": 0.5,
+      "outcome": "DETECTED",
+      "figure": "figures/timeline_00000073_increased_resistance.png",
+      "source": "folds/fold_04/scenario_scores/1b907b65da15310103f8.csv.gz"
+    },
+    {
+      "scenario_id": "c816ce838e948b94ddd4",
+      "flight": "00000073.BIN",
+      "family": "progressive",
+      "severity": "mild",
+      "start_position": 0.5,
+      "outcome": "DETECTED",
+      "figure": "figures/timeline_00000073_progressive.png",
+      "source": "folds/fold_04/scenario_scores/c816ce838e948b94ddd4.csv.gz"
+    },
+    {
+      "scenario_id": "7f4e57395748538b5297",
+      "flight": "00000073.BIN",
+      "family": "sudden_drop",
+      "severity": "mild",
+      "start_position": 0.5,
+      "outcome": "DETECTED",
+      "figure": "figures/timeline_00000073_sudden_drop.png",
+      "source": "folds/fold_04/scenario_scores/7f4e57395748538b5297.csv.gz"
+    },
+    {
+      "scenario_id": "67c9b569aeb8f07da1d2",
+      "flight": "00000074.BIN",
+      "family": "increased_resistance",
+      "severity": "mild",
+      "start_position": 0.5,
+      "outcome": "UNDETECTED",
+      "figure": "figures/timeline_00000074_increased_resistance.png",
+      "source": "folds/fold_05/scenario_scores/67c9b569aeb8f07da1d2.csv.gz"
+    },
+    {
+      "scenario_id": "d3b56eaea581c8a90a52",
+      "flight": "00000074.BIN",
+      "family": "progressive",
+      "severity": "mild",
+      "start_position": 0.5,
+      "outcome": "UNDETECTED",
+      "figure": "figures/timeline_00000074_progressive.png",
+      "source": "folds/fold_05/scenario_scores/d3b56eaea581c8a90a52.csv.gz"
+    },
+    {
+      "scenario_id": "281f01adf20b2f6e1d7c",
+      "flight": "00000074.BIN",
+      "family": "sudden_drop",
+      "severity": "mild",
+      "start_position": 0.5,
+      "outcome": "DETECTED",
+      "figure": "figures/timeline_00000074_sudden_drop.png",
+      "source": "folds/fold_05/scenario_scores/281f01adf20b2f6e1d7c.csv.gz"
+    }
+  ]
+}

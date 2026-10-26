@@ -1,0 +1,17 @@
+{
+  "method": "healthy_validation_percentile",
+  "percentile": 99.0,
+  "quantile_method": "numpy.percentile_linear",
+  "threshold_v": 0.3819054924556706,
+  "source_role": "validation",
+  "source_flights": [
+    "00000066.BIN"
+  ],
+  "source_samples": 9506,
+  "source_sha256": "69dec1ef9acc09640ce6db82b03e3b9ebdf2be98c95aef775f992ef9c58157ea",
+  "healthy_status": "assumed_from_source",
+  "score_definition": "max(0, actual_voltage_sag - predicted_voltage_sag)",
+  "comparison": "score > threshold",
+  "persistence_seconds": 0.5,
+  "persistence_source": "frozen_reference_protocol_not_tuned"
+}

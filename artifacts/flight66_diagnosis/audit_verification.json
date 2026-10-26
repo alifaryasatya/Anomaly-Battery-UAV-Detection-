@@ -1,0 +1,361 @@
+{
+  "status": "PASS",
+  "historical_files_verified_and_preserved": 345,
+  "no_fit_performed": true,
+  "original_model_features_config_threshold_persistence_preserved": true,
+  "flight66_not_in_target_fold_training_or_calibration": true,
+  "historical_counts_exposure_predictions_timers_exact": true,
+  "audits": [
+    {
+      "status": "PASS",
+      "samples": 9526,
+      "raw_telemetry_mismatches": {
+        "TimeUS": 0,
+        "Inst": 0,
+        "Volt": 0,
+        "Curr": 0,
+        "CurrTot": 0
+      },
+      "segments": 15,
+      "gaps": 14,
+      "excluded_gap_seconds": 873.578781,
+      "observed_ready_seconds": 949.099397,
+      "warmup_samples": 20,
+      "reference_low_current_samples": 20,
+      "reference_v": 16.417031288146973,
+      "reference_lock_elapsed_s": 2.000194,
+      "reference_constant_after_lock": true,
+      "reference_policy": {
+        "strategy": "causal_fixed_warmup",
+        "warmup_seconds": 2.0,
+        "low_current_max_a": 1.0,
+        "min_low_current_samples": 5,
+        "unavailable_policy": "mark_not_ready_and_report_coverage"
+      },
+      "max_feature_errors": {
+        "dt_seconds": 0.0,
+        "dI_dt": 0.0,
+        "dV_dt": 0.0,
+        "Curr_roll_mean_0p5s": 0.0,
+        "Curr_roll_std_0p5s": 1.7763568394002505e-15,
+        "Curr_roll_count_0p5s": 0.0,
+        "Curr_roll_coverage_0p5s": 0.0,
+        "Curr_roll_mean_1p0s": 0.0,
+        "Curr_roll_std_1p0s": 1.7763568394002505e-15,
+        "Curr_roll_count_1p0s": 0.0,
+        "Curr_roll_coverage_1p0s": 0.0
+      },
+      "duplicate_timestamps": 0,
+      "backward_timestamps": 0,
+      "currtot_decreases": 0,
+      "instances": [
+        0
+      ],
+      "nonfinite_numeric": 0,
+      "negative_voltage_current_total": 0,
+      "persistence_decisions_exact": true,
+      "fold_id": "fold_00",
+      "evaluated_role": "test",
+      "model_bundle_path": "artifacts\\cross_validation\\4bc978e2773687d3\\folds\\fold_00\\model_bundle.joblib",
+      "model_bundle_sha256": "445c4e2dda45111615c8ac8d2736849763960cef4f5df72e4c3f6ab7a088ed56",
+      "split": {
+        "train": [
+          "00000070.BIN",
+          "00000071.BIN",
+          "00000073.BIN",
+          "00000074.BIN"
+        ],
+        "validation": [
+          "00000069.BIN"
+        ],
+        "test": [
+          "00000066.BIN"
+        ]
+      },
+      "threshold": {
+        "method": "healthy_validation_percentile",
+        "percentile": 99.0,
+        "quantile_method": "numpy.percentile_linear",
+        "threshold_v": 0.11181085884265932,
+        "source_role": "validation",
+        "source_flights": [
+          "00000069.BIN"
+        ],
+        "source_samples": 1622,
+        "source_sha256": "3f521a81bb893a831d3882a48660917ae7bf798dc45d0061fcf216f487ffee03",
+        "healthy_status": "assumed_from_source",
+        "score_definition": "max(0, actual_voltage_sag - predicted_voltage_sag)",
+        "comparison": "score > threshold",
+        "persistence_seconds": 0.5,
+        "persistence_source": "frozen_reference_protocol_not_tuned"
+      },
+      "predictors": [
+        "Curr",
+        "CurrTot",
+        "dI_dt",
+        "Curr_roll_mean_0p5s",
+        "Curr_roll_std_0p5s",
+        "Curr_roll_mean_1p0s",
+        "Curr_roll_std_1p0s"
+      ],
+      "model_parameters": {
+        "categorical_features": "from_dtype",
+        "early_stopping": false,
+        "interaction_cst": null,
+        "l2_regularization": 0.1,
+        "learning_rate": 0.05,
+        "loss": "squared_error",
+        "max_bins": 255,
+        "max_depth": null,
+        "max_features": 1.0,
+        "max_iter": 200,
+        "max_leaf_nodes": 31,
+        "min_samples_leaf": 20,
+        "monotonic_cst": null,
+        "n_iter_no_change": 10,
+        "quantile": null,
+        "random_state": 42,
+        "scoring": "loss",
+        "tol": 1e-07,
+        "validation_fraction": 0.1,
+        "verbose": 0,
+        "warm_start": false
+      },
+      "max_prediction_error_v": 0.0
+    },
+    {
+      "status": "PASS",
+      "samples": 1664,
+      "raw_telemetry_mismatches": {
+        "TimeUS": 0,
+        "Inst": 0,
+        "Volt": 0,
+        "Curr": 0,
+        "CurrTot": 0
+      },
+      "segments": 2,
+      "gaps": 1,
+      "excluded_gap_seconds": 101.431447,
+      "observed_ready_seconds": 164.100118,
+      "warmup_samples": 21,
+      "reference_low_current_samples": 21,
+      "reference_v": 15.993141174316406,
+      "reference_lock_elapsed_s": 2.099964,
+      "reference_constant_after_lock": true,
+      "reference_policy": {
+        "strategy": "causal_fixed_warmup",
+        "warmup_seconds": 2.0,
+        "low_current_max_a": 1.0,
+        "min_low_current_samples": 5,
+        "unavailable_policy": "mark_not_ready_and_report_coverage"
+      },
+      "max_feature_errors": {
+        "dt_seconds": 0.0,
+        "dI_dt": 0.0,
+        "dV_dt": 0.0,
+        "Curr_roll_mean_0p5s": 0.0,
+        "Curr_roll_std_0p5s": 8.881784197001252e-16,
+        "Curr_roll_count_0p5s": 0.0,
+        "Curr_roll_coverage_0p5s": 0.0,
+        "Curr_roll_mean_1p0s": 0.0,
+        "Curr_roll_std_1p0s": 1.7763568394002505e-15,
+        "Curr_roll_count_1p0s": 0.0,
+        "Curr_roll_coverage_1p0s": 0.0
+      },
+      "duplicate_timestamps": 0,
+      "backward_timestamps": 0,
+      "currtot_decreases": 0,
+      "instances": [
+        0
+      ],
+      "nonfinite_numeric": 0,
+      "negative_voltage_current_total": 0,
+      "persistence_decisions_exact": true,
+      "fold_id": "fold_02",
+      "evaluated_role": "test",
+      "model_bundle_path": "artifacts\\cross_validation\\4bc978e2773687d3\\folds\\fold_02\\model_bundle.joblib",
+      "model_bundle_sha256": "d288781d143548cdd6c5468e01e7da01f2461081f080be4989ce952b4383f313",
+      "split": {
+        "train": [
+          "00000066.BIN",
+          "00000069.BIN",
+          "00000073.BIN",
+          "00000074.BIN"
+        ],
+        "validation": [
+          "00000071.BIN"
+        ],
+        "test": [
+          "00000070.BIN"
+        ]
+      },
+      "threshold": {
+        "method": "healthy_validation_percentile",
+        "percentile": 99.0,
+        "quantile_method": "numpy.percentile_linear",
+        "threshold_v": 0.0768544956526167,
+        "source_role": "validation",
+        "source_flights": [
+          "00000071.BIN"
+        ],
+        "source_samples": 986,
+        "source_sha256": "653448934a531c6444964f806768ed8c495887284fcd85580a8603dbe5638cae",
+        "healthy_status": "assumed_from_source",
+        "score_definition": "max(0, actual_voltage_sag - predicted_voltage_sag)",
+        "comparison": "score > threshold",
+        "persistence_seconds": 0.5,
+        "persistence_source": "frozen_reference_protocol_not_tuned"
+      },
+      "predictors": [
+        "Curr",
+        "CurrTot",
+        "dI_dt",
+        "Curr_roll_mean_0p5s",
+        "Curr_roll_std_0p5s",
+        "Curr_roll_mean_1p0s",
+        "Curr_roll_std_1p0s"
+      ],
+      "model_parameters": {
+        "categorical_features": "from_dtype",
+        "early_stopping": false,
+        "interaction_cst": null,
+        "l2_regularization": 0.1,
+        "learning_rate": 0.05,
+        "loss": "squared_error",
+        "max_bins": 255,
+        "max_depth": null,
+        "max_features": 1.0,
+        "max_iter": 200,
+        "max_leaf_nodes": 31,
+        "min_samples_leaf": 20,
+        "monotonic_cst": null,
+        "n_iter_no_change": 10,
+        "quantile": null,
+        "random_state": 42,
+        "scoring": "loss",
+        "tol": 1e-07,
+        "validation_fraction": 0.1,
+        "verbose": 0,
+        "warm_start": false
+      },
+      "max_prediction_error_v": 0.0
+    },
+    {
+      "status": "PASS",
+      "samples": 1642,
+      "raw_telemetry_mismatches": {
+        "TimeUS": 0,
+        "Inst": 0,
+        "Volt": 0,
+        "Curr": 0,
+        "CurrTot": 0
+      },
+      "segments": 2,
+      "gaps": 1,
+      "excluded_gap_seconds": 12.2,
+      "observed_ready_seconds": 161.999919,
+      "warmup_samples": 20,
+      "reference_low_current_samples": 20,
+      "reference_v": 16.507204055786133,
+      "reference_lock_elapsed_s": 2.000067,
+      "reference_constant_after_lock": true,
+      "reference_policy": {
+        "strategy": "causal_fixed_warmup",
+        "warmup_seconds": 2.0,
+        "low_current_max_a": 1.0,
+        "min_low_current_samples": 5,
+        "unavailable_policy": "mark_not_ready_and_report_coverage"
+      },
+      "max_feature_errors": {
+        "dt_seconds": 0.0,
+        "dI_dt": 0.0,
+        "dV_dt": 0.0,
+        "Curr_roll_mean_0p5s": 0.0,
+        "Curr_roll_std_0p5s": 8.881784197001252e-16,
+        "Curr_roll_count_0p5s": 0.0,
+        "Curr_roll_coverage_0p5s": 0.0,
+        "Curr_roll_mean_1p0s": 0.0,
+        "Curr_roll_std_1p0s": 1.7763568394002505e-15,
+        "Curr_roll_count_1p0s": 0.0,
+        "Curr_roll_coverage_1p0s": 0.0
+      },
+      "duplicate_timestamps": 0,
+      "backward_timestamps": 0,
+      "currtot_decreases": 0,
+      "instances": [
+        0
+      ],
+      "nonfinite_numeric": 0,
+      "negative_voltage_current_total": 0,
+      "persistence_decisions_exact": true,
+      "fold_id": "fold_00",
+      "evaluated_role": "validation",
+      "model_bundle_path": "artifacts\\cross_validation\\4bc978e2773687d3\\folds\\fold_00\\model_bundle.joblib",
+      "model_bundle_sha256": "445c4e2dda45111615c8ac8d2736849763960cef4f5df72e4c3f6ab7a088ed56",
+      "split": {
+        "train": [
+          "00000070.BIN",
+          "00000071.BIN",
+          "00000073.BIN",
+          "00000074.BIN"
+        ],
+        "validation": [
+          "00000069.BIN"
+        ],
+        "test": [
+          "00000066.BIN"
+        ]
+      },
+      "threshold": {
+        "method": "healthy_validation_percentile",
+        "percentile": 99.0,
+        "quantile_method": "numpy.percentile_linear",
+        "threshold_v": 0.11181085884265932,
+        "source_role": "validation",
+        "source_flights": [
+          "00000069.BIN"
+        ],
+        "source_samples": 1622,
+        "source_sha256": "3f521a81bb893a831d3882a48660917ae7bf798dc45d0061fcf216f487ffee03",
+        "healthy_status": "assumed_from_source",
+        "score_definition": "max(0, actual_voltage_sag - predicted_voltage_sag)",
+        "comparison": "score > threshold",
+        "persistence_seconds": 0.5,
+        "persistence_source": "frozen_reference_protocol_not_tuned"
+      },
+      "predictors": [
+        "Curr",
+        "CurrTot",
+        "dI_dt",
+        "Curr_roll_mean_0p5s",
+        "Curr_roll_std_0p5s",
+        "Curr_roll_mean_1p0s",
+        "Curr_roll_std_1p0s"
+      ],
+      "model_parameters": {
+        "categorical_features": "from_dtype",
+        "early_stopping": false,
+        "interaction_cst": null,
+        "l2_regularization": 0.1,
+        "learning_rate": 0.05,
+        "loss": "squared_error",
+        "max_bins": 255,
+        "max_depth": null,
+        "max_features": 1.0,
+        "max_iter": 200,
+        "max_leaf_nodes": 31,
+        "min_samples_leaf": 20,
+        "monotonic_cst": null,
+        "n_iter_no_change": 10,
+        "quantile": null,
+        "random_state": 42,
+        "scoring": "loss",
+        "tol": 1e-07,
+        "validation_fraction": 0.1,
+        "verbose": 0,
+        "warm_start": false
+      },
+      "max_prediction_error_v": 0.0
+    }
+  ]
+}
